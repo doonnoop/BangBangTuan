@@ -1,0 +1,31 @@
+.navigation {
+    box-shadow: 0px 6px 5px #e9e8e8;
+}
+.navbar-light .navbar-nav .nav-link {
+    margin: 0 20px;
+    font-size: 14px;
+}
+.profile {
+    width: 30px;
+    height: 30px;
+}
+.article-exit {
+    display: flex;
+    align-items: center;
+}
+.article-exit .article {
+    background-color: #ff6e37;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 8px;
+}
+.article-exit .navbar-light .navbar-nav .nav-link {
+    margin: 0 10px;
+}
+.exit {
+    font-size: 14px;
+    background: none;
+    border: none;
+    margin-left: -50px;
+}

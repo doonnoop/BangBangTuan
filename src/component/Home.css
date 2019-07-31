@@ -1,0 +1,137 @@
+.home {
+
+}
+.carousel-container {
+    margin-top: 20px;
+    width: 100%;
+    height: 300px;
+}
+.carousel-container .carousel-item img {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+.home-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 20px;
+}
+.left-container {
+    width: 25%;
+    height: auto;
+    background-color: #ffffff;
+}
+.middle-container {
+    width: 50%;
+    height: auto;
+    /*background-color: pink;*/
+}
+.right-container {
+    width: 25%;
+    height: auto;
+    background-color: #ffffff;
+    font-size: 12px;
+}
+.cal-box {
+    width: 80%;
+    margin: 20px auto;
+    box-shadow: 0px 6px 5px #e9e8e8;
+}
+.cal-head {
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #ff6e37;
+    text-align: center;
+    color: #ffffff;
+    padding: 5px;
+}
+.calender {
+    border-color: #f1f1f1;
+}
+.calender .react-calendar__tile--active {
+    background: #ff6e37;
+    border-radius: 40px;
+    padding: 0;
+    outline: none;
+}
+.calender .react-calendar__tile--active:enabled:hover, .calender .react-calendar__tile--active:enabled:focus {
+    background: #ff6e37;
+    border-radius: 40px;
+    padding: 0;
+    outline: none;
+}
+.cal-foot {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #ff6e37;
+}
+.left-foot div:first-child{
+    font-size: 14px;
+    font-weight: 600;
+    border-left: 4px solid #ff6e37;
+    padding-left: 5px;
+}
+.right-foot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.right-foot img {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+}
+.right-foot p {
+    color: #999999;
+    font-size: 9px;
+    margin: 0;
+}
+
+.mid-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+}
+.mid-header img {
+    width: 20px;
+    height: 20px;
+    margin: 0 20px;
+}
+.mid-project {
+    background-color: #ffffff;
+    box-shadow: 0px 6px 5px #e9e8e8;
+    width: 80%;
+    display: flex;
+    padding: 20px;
+    margin: 0 auto;
+    align-items: center;
+}
+.mid-project img {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #999999;
+}
+.pro-detail {
+    margin: 0 100px;
+    font-size: 14px;
+    color: #666666;
+    line-height: 30px;
+}
+.pro-name {
+    font-size: 17px;
+    color: #333333;
+    margin-bottom: 15px;
+}
+.pro-detail button {
+    background-color: #ff6e37;
+    border: none;
+    border-radius: 20px;
+    color: #ffffff;
+    padding: 0 25px;
+    margin-top: 10px;
+    /*margin-left: 180px;*/
+}

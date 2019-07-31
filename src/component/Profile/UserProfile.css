@@ -1,0 +1,34 @@
+.sexcheck label {
+    margin-right: 40px;
+}
+.sexcheck span {
+    margin-left: 10px;
+}
+.headPortrait {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.userImg {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto 40px;
+    cursor: pointer;
+    position:relative;
+}
+.upload {
+    font-size: 13px;
+    display: block;
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    right:0;
+    top:0;
+    opacity: 0;
+    filter:alpha(opacity=0);
+    cursor: pointer;
+}
+.headPortrait img {
+    width: 100px;
+    height: 100px;
+}

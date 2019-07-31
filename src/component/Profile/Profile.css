@@ -1,0 +1,62 @@
+.header {
+    width: 100%;
+    height: 100px;
+    background-color: #ffafa9;
+}
+.head-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.head-container img {
+    width: 110px;
+    height: 110px;
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+}
+.text {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #333333;
+    margin-left: 130px;
+}
+.text p {
+    margin: 5px;
+}
+.author {
+    font-size: 16px;
+    font-weight: 700;
+}
+.sign {
+    font-size: 11px;
+}
+
+.nav-container {
+    width: 100%;
+    height: 120px;
+    background-color: #ffffff;
+    box-shadow: 0px 6px 10px 5px #e9e8e8;
+}
+.nav-container .navbar {
+    display: flex;
+    flex-direction: row;
+    margin-top: 80px;
+    color: #333333;
+    font-weight: 500;
+    font-size: 16px;
+}
+.nav-container ul .nav {
+    list-style-type: none;
+    width: 70px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+}
+.nav-container ul .nav.active {
+    border-bottom: 3px solid #333333;
+}
+.content-container {
+    margin-top: 40px;
+}

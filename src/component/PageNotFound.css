@@ -1,0 +1,17 @@
+.invalid {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.invalid button {
+    border: none;
+    background-color: pink;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 10px 80px;
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
