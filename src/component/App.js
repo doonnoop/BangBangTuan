@@ -15,6 +15,9 @@ import PrivateRoute from './PrivateRoute'
 import AddArticle from "./Articles/AddArticle";
 import UserProfile from "./Profile/UserProfile";
 import Logout from "./Logout";
+import Project from "./Project/Project";
+import ProjectDetails from "./Project/ProjectDetails";
+import ProjectTasks from "./Project/ProjectTasks";
 
 class App extends React.Component {
     render() {
@@ -44,6 +47,15 @@ class App extends React.Component {
                         }} />
                         <Route path="/addArticle" render={() => {
                             return <AddArticle />
+                        }} />
+                        <Route path="/projects" render={() => {
+                            return <Project />
+                        }} />
+                        <Route path="/project/:id" render={() => {
+                            return <ProjectDetails />
+                        }} />
+                        <Route path="/task/:id" render={() => {
+                            return <ProjectTasks />
                         }} />
                         <Route path="/login" render={() => {
                             return <Login />

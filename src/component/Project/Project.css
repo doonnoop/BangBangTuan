@@ -1,0 +1,37 @@
+.con-header {
+    margin: 30px 0;
+    font-size: 16px;
+    border-left: 4px solid #ff6e37;
+    padding-left: 10px;
+}
+.pro-image{
+    height: 200px;
+    width: 200px;
+}
+.relative-box {
+    position: relative;
+}
+.btn-detail {
+    background-color: #48ce24;
+    color: #ffffff;
+    border: none;
+    padding: 5px 25px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+}
+.border-shadow {
+    box-shadow: 0px 6px 5px #e9e8e8;
+    margin-bottom: 10px;
+}
+.task-card {
+    margin: 10px 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+.task-card span {
+    color: #ff6e37
+}

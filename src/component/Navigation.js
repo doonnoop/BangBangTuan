@@ -71,7 +71,7 @@ export default class Navigation extends React.Component {
                                 <Nav.Link href="/cpMatch">组CP</Nav.Link>
                                 <Nav.Link href="/articles">学习日记</Nav.Link>
                                 <Nav.Link href="/clock">打卡记录</Nav.Link>
-                                <Nav.Link href="#link">项目商城</Nav.Link>
+                                <Nav.Link href="/projects">项目商城</Nav.Link>
                                 <Nav.Link href="#link">师徒计划</Nav.Link>
                                 <Nav.Link href="#link">就业商城</Nav.Link>
                             </Nav>
