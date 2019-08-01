@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import {  Row, Col, message } from 'antd';
 import './Clock.css';
 import ClockItem from './clock-list';
 import storage from "../storage";
 import { withRouter } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ReactPaginate from 'react-paginate';
 import './paginate.css'
@@ -65,37 +64,20 @@ class Clock extends Component{
                         console.log(res);
                         if(res.status === 200) {
                             this.getDakaList();
-                            toast.success(res.msg, {
-                                position: toast.POSITION.TOP_CENTER,
-                                autoClose: 1000
-                            });
+                            message.success(res.msg, 1);
                             this.setState({
                                 textarea: ''
                             });
-                            this.getDakaList();
                         } else if (res.status === 500) {
-                            toast.error(res.data.msg, {
-                                position: toast.POSITION.TOP_CENTER,
-                                autoClose: false
-                            });
+                            message.error(res.msg, 2);
                         }
                     });
             } else {
-                toast.info("请填写打卡内容", {
-                    position: toast.POSITION.TOP_CENTER,
-                });
+                message.info("请填写打卡内容");
             }
         } else {
-            toast.error("请登陆后再提交", {
-                position: toast.POSITION.TOP_CENTER,
-                autoClose: 2000
-            });
-            if(this.timer){
-                clearTimeout(this.timer);
-            }
-            this.timer = setTimeout(()=>{
-                this.props.history.push("/login")
-            },2000);
+            message.error("请登陆后再提交", 2);
+            this.props.history.push("/login");
         }
     };
 
@@ -109,42 +91,39 @@ class Clock extends Component{
 
     render() {
         return (
-            <Container id='container'>
-                <Row>
-                    <Col sm={2} />
-                    <Col sm={8}>
-                        <ToastContainer />
-                        <div className='daka'>
-                            <textarea rows='5' className='textarea' value={this.state.textarea} onChange={this.onFieldChange} />
-                            <button className='ml-auto button' onClick={this.dakaSubmit}>打卡</button>
-                        </div>
-                        {
-                            (this.state.dakaList && this.state.changed && <div>
-                                    <ClockItem dakaList={this.state.dakaList} />
-                                    <ReactPaginate
-                                        previousLabel={'<'}
-                                        nextLabel={'>'}
-                                        pageCount={this.state.pages}
-                                        marginPagesDisplayed={1}
-                                        pageRangeDisplayed={this.state.pages}
-                                        onPageChange={this.handlePageClick}
-                                        containerClassName={'pagination'}
-                                        pageLinkClassName={'page'}
-                                        subContainerClassName={'pages pagination'}
-                                        activeClassName={'active'}
-                                        previousLinkClassName={'link'}
-                                        nextLinkClassName={'link'}
-                                        disableInitialCallback={false}
-                                        forcePage={this.state.current - 1}
-                                    />
-                                </div>
-                            )
-                        }
+            <Row>
+                <Col md={5} />
+                <Col md={14}>
+                    <div className='daka'>
+                        <textarea rows='5' className='textarea' value={this.state.textarea} onChange={this.onFieldChange} />
+                        <button className='ml-auto button' onClick={this.dakaSubmit}>打卡</button>
+                    </div>
+                    {
+                        (this.state.dakaList && this.state.changed && <div>
+                                <ClockItem dakaList={this.state.dakaList} />
+                                <ReactPaginate
+                                    previousLabel={'<'}
+                                    nextLabel={'>'}
+                                    pageCount={this.state.pages}
+                                    marginPagesDisplayed={1}
+                                    pageRangeDisplayed={9}
+                                    onPageChange={this.handlePageClick}
+                                    containerClassName={'pagination'}
+                                    pageLinkClassName={'page'}
+                                    subContainerClassName={'pages pagination'}
+                                    activeClassName={'active'}
+                                    previousLinkClassName={'link'}
+                                    nextLinkClassName={'link'}
+                                    disableInitialCallback={false}
+                                    forcePage={this.state.current - 1}
+                                />
+                            </div>
+                        )
+                    }
 
-                    </Col>
-                    <Col sm={2} />
-                </Row>
-            </Container>
+                </Col>
+                <Col md={5} />
+            </Row>
         )
     }
 }

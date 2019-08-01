@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './Clock.css';
 import noAuthor from '../../images/no-author.png';
-import chatImg from '../../images/chat.png';
-import likeImg from '../../images/like.png';
-import likeActImg from '../../images/like-act.png';
+// import chatImg from '../../images/chat.png';
+// import likeImg from '../../images/like.png';
+// import likeActImg from '../../images/like-act.png';
 import countImg from '../../images/count.png';
 import storage from "../storage";
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { withRouter } from 'react-router-dom';
+import { message, Comment, Avatar, Icon, List } from "antd";
 
 class ClockItem extends Component{
     constructor(props) {
@@ -16,7 +16,7 @@ class ClockItem extends Component{
         this.state = {
             token: storage.get('token'),
             usercomment: '',
-            headPortrait: storage.get('headPortrait')
+            headPortrait: storage.get('headPortrait'),
         }
     }
 
@@ -85,7 +85,7 @@ class ClockItem extends Component{
         dakaList[id].display = dakaList[id].isToggleOn ? 'block' : 'none';
 
         this.setState({
-            dakaList: this.state.dakaList
+            dakaList: this.state.dakaList,
         });
         console.log(this.state.dakaList)
     };
@@ -113,10 +113,7 @@ class ClockItem extends Component{
             .then((res) => res.json())
             .then( res => {
                 console.log(res);
-                toast.info(res.msg, {
-                    position: toast.POSITION.TOP_CENTER,
-                    autoClose: 1000
-                });
+                message.info(res.msg, 2);
                 if (res.status === 200) {
                     dakaList[id].liked = likeCollected;
                     dakaList[id].praiseNumber = (parseInt(dakaList[id].praiseNumber) + (likeCollected ? 1 : (-1))).toString();
@@ -162,16 +159,8 @@ class ClockItem extends Component{
                 })
                 .catch( err => console.log(err));
         } else {
-            toast.error("请登陆后再评论", {
-                position: toast.POSITION.TOP_CENTER,
-                autoClose: 2000
-            });
-            if(this.timer){
-                clearTimeout(this.timer);
-            }
-            this.timer = setTimeout(()=>{
-                this.props.history.push("/login")
-            },1500);
+            message.error("请登陆后再评论", 2);
+            this.props.history.push("/login");
         }
     };
 
@@ -179,36 +168,55 @@ class ClockItem extends Component{
         let dakaList = this.state.dakaList;
         return (
             <div className='dakas'>
-                <ToastContainer/>
                 <div className='daka-container'>
                         {
                             dakaList && dakaList.map((item, index) => {
                                 return <div key={index} className='daka-box'>
                                     <div className='daka-item'>
-                                        <div>
-                                            <img src={item.headPortrait} alt='' className='author-img' />
-                                        </div>
-                                        <div className='body-container'>
-                                            <div className='author'>{item.name}</div>
-                                            <div className='data-container'>
-                                                <p>{item.createTime}</p>
-                                                <div className='count'>
-                                                    <img src={countImg} alt=''/>
-                                                    <p>坚持{item.day}天</p>
+                                        <Comment
+                                            author={
+                                                <div>
+                                                    {item.name}
+                                                    <div className='count'>
+                                                        <img src={countImg} alt=''/>
+                                                        <div>坚持{item.day}天</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div>{item.content}</div>
-                                            <div className='comment-like'>
-                                                <div className='comment' onClick={() => this.handleClick(index)}>
-                                                    <img src={chatImg} alt='' />
-                                                    <p>{item.commentNumber}</p>
+
+                                            }
+                                            avatar={
+                                                <Avatar src={item.headPortrait} alt={item.name} />
+                                            }
+                                            content={
+                                                <div>
+                                                    <p className='content'>{item.content}</p>
                                                 </div>
-                                                <div className='like' onClick={() => this.onLikeTap(index)}>
-                                                    <img src={item.liked ? likeActImg : likeImg } alt='' />
-                                                    <p>{item.praiseNumber}</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            }
+                                            datetime={item.createTime}
+                                            actions={
+                                                [
+                                                    <span className='comment-like'>
+                                                        <div className='vertical-alain'>
+                                                            <Icon
+                                                                type="message"
+                                                                onClick={() => this.handleClick(index)}
+                                                                style={{fontSize: 15}}
+                                                            />
+                                                            <span style={{ paddingLeft: 8, cursor: 'auto', fontSize: 14 }}>{item.commentNumber}</span>
+                                                        </div>
+                                                        <div className='vertical-alain'>
+                                                            <Icon
+                                                                type="like"
+                                                                theme={item.liked ? 'filled' : 'outlined'}
+                                                                onClick={() => this.onLikeTap(index)}
+                                                                style={{fontSize: 15}}
+                                                            />
+                                                            <span style={{ paddingLeft: 8, cursor: 'auto', fontSize: 14 }}>{item.praiseNumber}</span>
+                                                        </div>
+                                                    </span>
+                                                ]
+                                            }
+                                        />
                                     </div>
                                     <div className='comments' style={{display: item.display}}>
                                         <div className='comment-input'>
@@ -218,20 +226,23 @@ class ClockItem extends Component{
                                         </div>
                                         <div className='comment-list'>
                                             {
-                                                item.comments && item.comments.map((key, index) => {
-                                                    return <div className='comment-item' key={index}>
-                                                        <div className='avatar'>
-                                                            <img src={key.headPortrait} alt='' />
-                                                        </div>
-                                                        <div className='comment-detail'>
-                                                            <div className='user-comment'>
-                                                                <div className='username'>{key.name}:</div>
-                                                                <div className='detail'>{key.content}</div>
-                                                            </div>
-                                                            <div className='data'>{key.createTime}</div>
-                                                        </div>
-                                                    </div>
-                                                })
+                                                item.comments &&
+                                                <List
+                                                    className="comment-list"
+                                                    header={`${item.comments.length} 条评论`}
+                                                    itemLayout="horizontal"
+                                                    dataSource={item.comments}
+                                                    renderItem={key => (
+                                                        <li>
+                                                            <Comment
+                                                                author={key.name}
+                                                                avatar={key.headPortrait}
+                                                                content={key.content}
+                                                                datetime={key.createTime}
+                                                            />
+                                                        </li>
+                                                    )}
+                                                />
                                             }
                                         </div>
                                     </div>
