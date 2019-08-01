@@ -25,6 +25,16 @@ export default class Navigation extends React.Component {
         )
     }
 
+    logout = () => {
+        localStorage.removeItem('user');
+        this.props.history.push('/login')
+    };
+
+    menuClick = e => {
+        console.log(e);
+        e.key === 'logout' && this.logout();
+    };
+
     render() {
         if (this.state.loaded === false) {
             return null
@@ -62,22 +72,22 @@ export default class Navigation extends React.Component {
         }
         return (
             <div className='navigation'>
-                    <Navbar bg="light" expand="lg">
-                        <Navbar.Brand href="/">帮帮团</Navbar.Brand>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav className="mr-auto">
-                                <Nav.Link href="/">首页</Nav.Link>
-                                <Nav.Link href="/cpMatch">组CP</Nav.Link>
-                                <Nav.Link href="/articles">学习日记</Nav.Link>
-                                <Nav.Link href="/clock">打卡记录</Nav.Link>
-                                <Nav.Link href="/projects">项目商城</Nav.Link>
-                                <Nav.Link href="#link">师徒计划</Nav.Link>
-                                <Nav.Link href="#link">就业商城</Nav.Link>
-                            </Nav>
-                            {navRight}
-                        </Navbar.Collapse>
-                    </Navbar>
+                <Navbar bg="light" expand="lg">
+                    <Navbar.Brand href="/">帮帮团</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="mr-auto">
+                            <Nav.Link href="/">首页</Nav.Link>
+                            <Nav.Link href="/cpMatch">组CP</Nav.Link>
+                            <Nav.Link href="/articles">学习日记</Nav.Link>
+                            <Nav.Link href="/clock">打卡记录</Nav.Link>
+                            <Nav.Link href="/projects">项目商城</Nav.Link>
+                            <Nav.Link href="#link">师徒计划</Nav.Link>
+                            <Nav.Link href="#link">就业商城</Nav.Link>
+                        </Nav>
+                        {navRight}
+                    </Navbar.Collapse>
+                </Navbar>
             </div>
 
 

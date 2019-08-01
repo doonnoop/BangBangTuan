@@ -15,7 +15,7 @@ class Profile extends Component{
             tabs:[
                 {tabName:"动态",id:1},
                 {tabName:"学习日记",id:2},
-                {tabName:"关注",id:3},
+                {tabName:"个人中心",id:3},
                 {tabName:"收藏",id:4},
             ],
             currentIndex:1,
@@ -70,6 +70,20 @@ class Profile extends Component{
                     });
                 })
                 .catch( err => console.log(err))
+            // fetch('https://api.bangneedu.com/projectTaskUser/1', {
+            //     method: 'GET',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //         "Authorization": "Bearer " + token
+            //     }})
+            //     .then((res) => res.json())
+            //     .then( res => {
+            //         console.log(res);
+            //         // this.setState({
+            //         //     userArticle: res.data.records
+            //         // });
+            //     })
+            //     .catch( err => console.log(err))
         } else {
             storage.set('token', false);
         }
@@ -156,7 +170,7 @@ class Profile extends Component{
                                 <div style={{"display":isBox2Show}}>
                                     {
                                         (this.state.userArticle &&
-                                            <ArticleItem dakaList={this.state.userArticle} />)
+                                            <ArticleItem articles={this.state.userArticle} />)
                                     }
                                 </div>
                                 <div style={{"display":isBox3Show}}>

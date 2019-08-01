@@ -6,26 +6,16 @@
     width: 100%;
     height: 300px;
 }
-.carousel-container .carousel-item img {
+.carousel-container img {
     width: 100%;
     height: 300px;
     overflow: hidden;
 }
 .home-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
     margin-top: 20px;
 }
 .left-container {
-    width: 25%;
-    height: auto;
-    background-color: #ffffff;
-}
-.middle-container {
-    width: 50%;
-    height: auto;
-    /*background-color: pink;*/
+    /*background-color: #ffffff;*/
 }
 .right-container {
     width: 25%;
@@ -34,32 +24,35 @@
     font-size: 12px;
 }
 .cal-box {
-    width: 80%;
-    margin: 20px auto;
+    margin-right: 20px;
+    margin-top: 20px;
     box-shadow: 0px 6px 5px #e9e8e8;
 }
+.cal-box .ant-fullcalendar-selected-day .ant-fullcalendar-value, .ant-fullcalendar-month-panel-selected-cell .ant-fullcalendar-value {
+    background: #ff6e37;
+    border-radius: 40px;
+    padding: 5px;
+    outline: none;
+}
+.cal-box .ant-fullcalendar-selected-day .ant-fullcalendar-value, .ant-fullcalendar-month-panel-selected-cell .ant-fullcalendar-value{
+    background: #ff6e37;
+    border-radius: 40px;
+    padding: 0;
+    outline: none;
+}
+.cal-box .ant-fullcalendar-today .ant-fullcalendar-value, .ant-fullcalendar-month-panel-current-cell .ant-fullcalendar-value {
+    box-shadow: 0 0 0 1px #ff6e37 inset;
+}
+.ant-fullcalendar-header{
+    display:none;
+}
 .cal-head {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     background-color: #ff6e37;
     text-align: center;
     color: #ffffff;
     padding: 5px;
-}
-.calender {
-    border-color: #f1f1f1;
-}
-.calender .react-calendar__tile--active {
-    background: #ff6e37;
-    border-radius: 40px;
-    padding: 0;
-    outline: none;
-}
-.calender .react-calendar__tile--active:enabled:hover, .calender .react-calendar__tile--active:enabled:focus {
-    background: #ff6e37;
-    border-radius: 40px;
-    padding: 0;
-    outline: none;
 }
 .cal-foot {
     padding: 10px 20px;
@@ -94,7 +87,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px auto;
+    margin: 20px 0;
+    font-size: 16px;
 }
 .mid-header img {
     width: 20px;
@@ -104,11 +98,10 @@
 .mid-project {
     background-color: #ffffff;
     box-shadow: 0px 6px 5px #e9e8e8;
-    width: 80%;
+    width: 90%;
     display: flex;
     padding: 20px;
     margin: 0 auto;
-    align-items: center;
 }
 .mid-project img {
     width: 150px;
@@ -116,22 +109,15 @@
     border: 1px solid #999999;
 }
 .pro-detail {
-    margin: 0 100px;
-    font-size: 14px;
-    color: #666666;
-    line-height: 30px;
+    margin-left: 40px;
+    line-height: 20px;
 }
-.pro-name {
-    font-size: 17px;
-    color: #333333;
-    margin-bottom: 15px;
-}
-.pro-detail button {
+.mid-project button {
     background-color: #ff6e37;
     border: none;
     border-radius: 20px;
     color: #ffffff;
-    padding: 0 25px;
+    padding: 5px 30px;
     margin-top: 10px;
-    /*margin-left: 180px;*/
+    float: right;
 }
