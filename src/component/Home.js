@@ -42,7 +42,7 @@ class Home extends Component{
                     <div className='mid-project'>
                         <Row>
                             <Col md={6}>
-                                <img />
+                                <img alt='' />
                             </Col>
                             <Col md={18}>
                                 <Descriptions title="VUE后台项目管理" column={1} className='pro-detail'>

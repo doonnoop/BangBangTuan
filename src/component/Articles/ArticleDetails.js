@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row, Col, Icon, Comment, List} from 'antd';
+import {Row, Col, Comment, List} from 'antd';
 import { withRouter } from 'react-router-dom';
 import storage from "../storage";
 import noAuthor from "../../images/no-author.png";

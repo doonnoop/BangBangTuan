@@ -4,7 +4,6 @@ import './Clock.css';
 import ClockItem from './clock-list';
 import storage from "../storage";
 import { withRouter } from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css';
 import ReactPaginate from 'react-paginate';
 import './paginate.css'
 

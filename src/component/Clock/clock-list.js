@@ -6,7 +6,6 @@ import noAuthor from '../../images/no-author.png';
 // import likeActImg from '../../images/like-act.png';
 import countImg from '../../images/count.png';
 import storage from "../storage";
-import 'react-toastify/dist/ReactToastify.css';
 import { withRouter } from 'react-router-dom';
 import { message, Comment, Avatar, Icon, List } from "antd";
 

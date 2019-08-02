@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import {Col, Container, Row} from "react-bootstrap";
+import { Col, Row, message, Form, Input } from 'antd';
 import Editor from "for-editor";
-import { InputGroup, FormControl } from 'react-bootstrap'
 import storage from "../storage";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { withRouter } from 'react-router-dom';
 
 class AddArticle extends Component {
@@ -35,57 +32,70 @@ class AddArticle extends Component {
         };
         console.log(body);
         let token = storage.get('token');
-        fetch('https://api.bangneedu.com/article', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                "Authorization": "Bearer " + token
-            },
-            body: JSON.stringify(body)
-        })
-            .then((res) => res.json())
-            .then( res => {
-                console.log(res.data);
-                if(res.status === 200) {
-                    toast.success("发表成功", {
-                        position: toast.POSITION.TOP_CENTER,
-                        autoClose: 2000
-                    });
-                    if(this.timer){
-                        clearTimeout(this.timer);
-                    }
-                    this.timer = setTimeout(()=>{
-                        this.props.history.push("/articles")
-                    },3000);
-                }
+        if(body.title && body.content){
+            fetch('https://api.bangneedu.com/article', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": "Bearer " + token
+                },
+                body: JSON.stringify(body)
             })
-            .catch( err => console.log(err))
+                .then((res) => res.json())
+                .then( res => {
+                    console.log(res.data);
+                    if(res.status === 200) {
+                        message.success("发表成功", 2);
+                        this.props.history.push("/articles")
+                    }
+                })
+                .catch( err => console.log(err))
+        } else {
+            message.error("请输入文章标题", 2);
+        }
     };
 
     render() {
+        const { getFieldDecorator } = this.props.form;
+        const formItemLayout = {
+            labelCol: {
+                md: { span: 5},
+                xs: { span: 24 },
+                sm: { span: 8 },
+            },
+            wrapperCol: {
+                md: { span: 15},
+                xs: { span: 24 },
+                sm: { span: 16 },
+            },
+        };
         return (
-            <Container id='container'>
+            <div>
                 <Row>
-                    <Col sm={1} />
-                    <Col sm={10}>
-                        <ToastContainer />
+                    <Col md={4} />
+                    <Col sm={16}>
                         <div className='addArticle'>
-                            <InputGroup className="mb-3">
-                                <InputGroup.Prepend>
-                                    <InputGroup.Text id="title">文章标题</InputGroup.Text>
-                                </InputGroup.Prepend>
-                                <FormControl placeholder="请输入标题" aria-label="title" aria-describedby="title"
-                                             onChange={this.onFieldChange} name='title'/>
-                            </InputGroup>
+                            <Form {...formItemLayout}>
+                                <Form.Item label="文章标题">
+                                    {getFieldDecorator('title', {
+                                        rules: [
+                                            {
+                                                required: true,
+                                                message: '请输入文章标题',
+                                            },
+                                        ],
+                                    })( <Input placeholder="请输入标题" onChange={this.onFieldChange} name='title' />)}
+                                </Form.Item>
+                            </Form>
                             <Editor value={this.state.value} onChange={this.handleChange} />
                             <button className='submitArticle' onClick={this.bindSubmit}>发表日记</button>
                         </div>
                     </Col>
-                    <Col sm={1} />
+                    <Col md={4} />
                 </Row>
-            </Container>
+            </div>
         )
     }
 }
 
-export default withRouter(AddArticle);
+export default Form.create({ name: 'register' })(withRouter(AddArticle));
