@@ -235,7 +235,7 @@ class ClockItem extends Component{
                                                     renderItem={key => (
                                                         <li>
                                                             <Comment
-                                                                author={key.name}
+                                                                author={<span style={{color: '#ff6e37'}}>{key.name}</span>}
                                                                 avatar={key.headPortrait}
                                                                 content={key.content}
                                                                 datetime={key.createTime}

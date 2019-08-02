@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import {  Row, Col } from 'antd';
 import ArticleItem from './article-list';
 import storage from "../storage";
 
@@ -34,17 +34,15 @@ class Article extends Component{
 
     render() {
         return (
-            <Container id='container'>
-                <Row>
-                    <Col sm={2} />
-                    <Col sm={8}>
-                        {
-                            this.state.articles && <ArticleItem articles={this.state.articles}/>
-                        }
-                    </Col>
-                    <Col sm={2} />
-                </Row>
-            </Container>
+            <Row>
+                <Col md={4} />
+                <Col md={16}>
+                    {
+                        this.state.articles && <ArticleItem articles={this.state.articles}/>
+                    }
+                </Col>
+                <Col md={4} />
+            </Row>
         )
     }
 }

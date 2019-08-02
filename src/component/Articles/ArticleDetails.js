@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import {Row, Col, Icon, Comment, List} from 'antd';
 import { withRouter } from 'react-router-dom';
 import storage from "../storage";
 import noAuthor from "../../images/no-author.png";
@@ -99,23 +99,30 @@ class ArticleDetails extends Component{
     render() {
         let article = this.state.article;
         return (
-            <Container id='container'>
+            <div>
                 <Row>
-                    <Col sm={2} />
-                    <Col sm={8}>
+                    <Col md={4} />
+                    <Col md={16}>
                         <div className='article-box'>
                             {
                                 article && <div className='article'>
-                                    <div className='head'>
-                                        <div>
-                                            <div className='article-name'>{article.title}</div>
-                                            <div className='author-course'>
-                                                <div className='author-name'>作者 {article.name}</div>
+                                    <Comment
+                                        author={
+                                            <div>
+                                                <div className='article-name'>{article.title}</div>
+                                                <div>作者 <span style={{color: '#ff6e37'}}>{article.name}</span></div>
                                             </div>
-                                        </div>
-                                        <div className='date'>{article.createTime}</div>
-                                    </div>
-                                    <ReactMarkdown className='body' source={article.content} />
+
+                                        }
+                                        content={
+                                            <div>
+                                                <ReactMarkdown className='content' source={article.content} />
+                                            </div>
+                                        }
+                                        datetime={
+                                            <div className='article-date'>{article.createTime}</div>
+                                        }
+                                    />
                                 </div>
                             }
                             <div className='art-comments'>
@@ -126,28 +133,30 @@ class ArticleDetails extends Component{
                                 </div>
                                 <div className='comment-list'>
                                     {
-                                        this.state.comments && this.state.comments.map((key, index) => {
-                                            return <div className='comment-item' key={index}>
-                                                <div className='avatar'>
-                                                    <img src={key.headPortrait} alt='' />
-                                                </div>
-                                                <div className='comment-detail'>
-                                                    <div className='user-comment'>
-                                                        <div className='username'>{key.name}:</div>
-                                                        <div className='detail'>{key.content}</div>
-                                                    </div>
-                                                    <div className='data'>{key.createTime}</div>
-                                                </div>
-                                            </div>
-                                        })
+                                        this.state.comments && <List
+                                            className="comment-list"
+                                            header={`${this.state.comments.length} 条评论`}
+                                            itemLayout="horizontal"
+                                            dataSource={this.state.comments}
+                                            renderItem={key => (
+                                                <li>
+                                                    <Comment
+                                                        author={<span style={{color: '#ff6e37'}}>{key.name}</span>}
+                                                        avatar={key.headPortrait}
+                                                        content={key.content}
+                                                        datetime={key.createTime}
+                                                    />
+                                                </li>
+                                            )}
+                                        />
                                     }
                                 </div>
                             </div>
                         </div>
                     </Col>
-                    <Col sm={2} />
+                    <Col md={4} />
                 </Row>
-            </Container>
+            </div>
         )
     }
 }
