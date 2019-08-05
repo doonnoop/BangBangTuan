@@ -14,12 +14,12 @@ class ProjectTasks extends Component{
     }
 
     componentDidMount() {
-        console.log(this.props.match.params.id);
+        console.log(parseInt(this.props.match.params.id));
         this.getTaskDetails();
     }
 
     getTaskDetails = () => {
-        fetch('https://api.bangneedu.com/projectWork/' + this.props.match.params.id, {
+        fetch('https://api.bangneedu.com/projectTaskUser/id?id=' + parseInt(this.props.match.params.id), {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

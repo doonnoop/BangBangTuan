@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './Profile.css';
-import { Row, Col, Descriptions } from 'antd';
+import { Row, Col, Descriptions, Breadcrumb,Tabs } from 'antd';
 import '../Clock/Clock.css';
 import ClockItem from '../Clock/clock-list';
 import ArticleItem from '../Articles/article-list';
 import storage from '../storage';
 import { withRouter } from 'react-router-dom';
+import UserTasks from "../Project/userTasks";
+const { TabPane } = Tabs;
 
 class Profile extends Component{
     constructor(props, context) {
@@ -70,20 +72,6 @@ class Profile extends Component{
                     });
                 })
                 .catch( err => console.log(err))
-            // fetch('https://api.bangneedu.com/projectTaskUser/1', {
-            //     method: 'GET',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //         "Authorization": "Bearer " + token
-            //     }})
-            //     .then((res) => res.json())
-            //     .then( res => {
-            //         console.log(res);
-            //         // this.setState({
-            //         //     userArticle: res.data.records
-            //         // });
-            //     })
-            //     .catch( err => console.log(err))
         } else {
             storage.set('token', false);
         }
@@ -158,7 +146,6 @@ class Profile extends Component{
                                     (this.state.userDaka &&
                                         <ClockItem dakaList={this.state.userDaka} />)
                                 }
-
                             </div>
                             <div style={{"display":isBox2Show}}>
                                 {
@@ -167,7 +154,11 @@ class Profile extends Component{
                                 }
                             </div>
                             <div style={{"display":isBox3Show}}>
-                                娱乐圈
+                                <Breadcrumb className='con-header' style={{ paddingLeft: 10, fontSize: 16, marginTop: 30, marginBottom: 30}}>
+                                    <Breadcrumb.Item>个人中心</Breadcrumb.Item>
+                                    <Breadcrumb.Item>我的任务</Breadcrumb.Item>
+                                </Breadcrumb>
+                                <UserTasks />
                             </div>
                             <div style={{"display":isBox4Show}}>
                                 收藏

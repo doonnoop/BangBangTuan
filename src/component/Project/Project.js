@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row, Col, Card, Descriptions, Layout } from 'antd';
+import {Row, Col, Descriptions, Layout } from 'antd';
 import './Project.css';
 import { Link } from 'react-router-dom'
 const { Sider, Content } = Layout;
@@ -26,7 +26,7 @@ class Project extends Component{
             .then( res => {
                 console.log(res)
                 this.setState({
-                    projects: res.data.records,
+                    projects: res.data.records.reverse(),
                     pages: parseInt(res.data.pages)
                 });
             })
@@ -48,7 +48,7 @@ class Project extends Component{
                         {
                             this.state.projects && this.state.projects.map((item, index) => {
                                 return <div key={index} className='relative-box'>
-                                    <Card style={{marginBottom: 10}}>
+                                    <div style={{marginBottom: 20}}>
                                         <Layout>
                                             <Sider width={200} height={200} style={{ background: '#fff' }}>
                                                 <img className='pro-image' src={item.image} alt='' />
@@ -63,7 +63,7 @@ class Project extends Component{
                                             </Layout>
                                         </Layout>
                                         <Link to={'/project/' + item.id} className='btn-detail'>查看详情</Link>
-                                    </Card>
+                                    </div>
                                 </div>
                             })
                         }
