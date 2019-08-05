@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Profile.css';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col, Descriptions } from 'antd';
 import '../Clock/Clock.css';
 import ClockItem from '../Clock/clock-list';
 import ArticleItem from '../Articles/article-list';
@@ -118,71 +118,63 @@ class Profile extends Component{
         return (
             <div>
                 <div className='header'>
-                    <Container>
-                        <Row>
-                            <Col sm={2}/>
-                            <Col sm={8}>
-                                {
-                                    (this.state.userInfo && (
-
+                    <Row>
+                        <Col md={4}/>
+                        <Col md={16}>
+                            {
+                                (this.state.userInfo && (
                                 <div className='head-container'>
                                     <img src={this.state.userInfo.headPortrait} alt='' onClick={() => this.handleClick(this.state.userInfo.id)}/>
-                                    <div className='text'>
-                                        <p className='author'>{this.state.userInfo.name}</p>
-                                        <p>微信号： {this.state.userInfo.weixin}</p>
-                                        <p className='sign'>个人简介： {this.state.userInfo.description ? this.state.userInfo.description : '什么都没有'}</p>
-                                    </div>
+                                    <Descriptions title={this.state.userInfo.name} className='user-info' column={1}>
+                                        <Descriptions.Item label="微信号 ">{this.state.userInfo.weixin}</Descriptions.Item>
+                                        <Descriptions.Item label="个人简介 ">{this.state.userInfo.description ? this.state.userInfo.description : '什么都没有'}</Descriptions.Item>
+                                    </Descriptions>
                                 </div>
-                                    ))
-                                }
-                            </Col>
-                            <Col sm={2}/>
-                        </Row>
-                    </Container>
+                                ))
+                            }
+                        </Col>
+                        <Col md={4}/>
+                    </Row>
                 </div>
                 <div className='nav-container'>
-                    <Container>
-                        <Row>
-                            <Col sm={2}/>
-                            <Col sm={8}>
-                                <div className="listWrap">
-                                    <ul className="navbar">
-                                        {tabList}
-                                    </ul>
-                                </div>
-                            </Col>
-                            <Col sm={2}/>
-                        </Row>
-                    </Container>
+                    <Row>
+                        <Col md={5}/>
+                        <Col md={14}>
+                            <div className="listWrap">
+                                <ul className="navbar">
+                                    {tabList}
+                                </ul>
+                            </div>
+                        </Col>
+                        <Col md={5}/>
+                    </Row>
                 </div>
                 <div className="content-container">
-                    <Container>
-                        <Row>
-                            <Col sm={2}/>
-                            <Col sm={8}>
-                                <div style={{"display":isBox1Show}} >
-                                    {
-                                        (this.state.userDaka &&
-                                            <ClockItem dakaList={this.state.userDaka} />)
-                                    }
+                    <Row>
+                        <Col md={5}/>
+                        <Col md={14}>
+                            <div style={{"display":isBox1Show}} >
+                                {
+                                    (this.state.userDaka &&
+                                        <ClockItem dakaList={this.state.userDaka} />)
+                                }
 
-                                </div>
-                                <div style={{"display":isBox2Show}}>
-                                    {
-                                        (this.state.userArticle &&
-                                            <ArticleItem articles={this.state.userArticle} />)
-                                    }
-                                </div>
-                                <div style={{"display":isBox3Show}}>
-                                    娱乐圈
-                                </div>
-                                <div style={{"display":isBox4Show}}>
-                                    收藏
-                                </div>
-                            </Col>
-                            <Col sm={2}/>
-                        </Row>
-                    </Container>
+                            </div>
+                            <div style={{"display":isBox2Show}}>
+                                {
+                                    (this.state.userArticle &&
+                                        <ArticleItem articles={this.state.userArticle} />)
+                                }
+                            </div>
+                            <div style={{"display":isBox3Show}}>
+                                娱乐圈
+                            </div>
+                            <div style={{"display":isBox4Show}}>
+                                收藏
+                            </div>
+                        </Col>
+                        <Col md={5}/>
+                    </Row>
                 </div>
             </div>
         )

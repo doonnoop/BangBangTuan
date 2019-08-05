@@ -1,82 +1,37 @@
 .box {
     border: 1px solid #f1f1f1;
     box-shadow: 0px 6px 10px 5px #e9e8e8;
-    padding-top: 20px;
-    padding-bottom: 40px;
+    padding: 20px 0 40px;
     margin-top: 50px;
     background-color: #ffffff;
 }
-.nav-item a {
+.login-form-forgot {
+    float: right;
+}
+.nav-tab .ant-tabs-nav .ant-tabs-tab-active {
     color: #ff6e37;
 }
-#active {
-    color: #ff6e37;
+.nav-tab .ant-tabs-nav-container {
+    font-size: 16px;
 }
-#active .nav-link.active {
-    color: #ff6e37;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    position: relative;
+.nav-tab .ant-tabs-ink-bar {
+    background-color: #ff6e37;
 }
-.nav-tabs .nav-item:hover {
-    border-top: none;
-    border-right: none;
-    border-left: none;
-}
-#active .nav-link.active:before {
-    content : "";
-    position: absolute;
-    left    : 80px;
-    bottom  : 0;
-    height  : 1px;
-    width   : 30%;  /* or 100px */
-    border-bottom: 3px solid #ff6e37;
-}
-.row .nav-tabs {
-    border-bottom: 0px solid #fff;
-    margin-bottom: 40px;
-}
-form .btn-primary {
-    color: #fff;
+.nav-tab .ant-btn-primary {
+    display: block;
     background-color: #ff6e37;
     border-color: #ff6e37;
-    width: 100%;
+    font-size: 15px;
+    width: 90%;
+    margin: 0 auto;
     border-radius: 20px;
-    margin-top: 40px;
 }
-.forget {
-    font-size: 12px;
+.nav-tab .ant-tabs-nav .ant-tabs-tab {
+    margin: 0 180px 0 0;
 }
-.img {
-    width: 30px;
-    height: 30px;
+.nav-tab .ant-tabs-nav-scroll {
+    text-align: center;
 }
-form .form-group .input-group {
-    margin-bottom: 25px;
-}
-.input-group > .form-control {
-    padding-left: 35px;
-    font-size: 14px;
-    height: 40px;
-}
-.input-group > #user {
-    background: url('../images/user.png') no-repeat 5px;
-}
-#password {
-    background: url('../images/lock.png') no-repeat 5px;
-}
-#weixin {
-    background: url('../images/weixin.png') no-repeat 5px;
-}
-#phone {
-    background: url('../images/phone.png') no-repeat 5px;
-}
-#captcha {
-    background: url('../images/captcha.png') no-repeat 5px;
-}
-#get-captcha {
-    background-color: #ff6e37;
-    color: #ffffff;
-    border-color: #ff6e37;
+.nav-tab .ant-input-group .ant-btn-primary {
+    border-radius: 5px;
 }
