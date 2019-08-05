@@ -81,7 +81,7 @@ class Login extends Component{
                                         <a className="login-form-forgot" href="">忘记密码？</a>
                                     </Form.Item>
                                     <Form.Item>
-                                        <Button type="primary" htmlType="submit" className="login-form-button">登陆</Button>
+                                        <Button type="primary" htmlType="submit">登陆</Button>
                                     </Form.Item>
                                 </Form>
                             </TabPane>

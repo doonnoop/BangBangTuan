@@ -157,7 +157,7 @@ class Register extends Component{
                     )}
                 </Form.Item>
                 <Form.Item>
-                    <Button type="primary" htmlType="submit" className="login-form-button">注册</Button>
+                    <Button type="primary" htmlType="submit">注册</Button>
                 </Form.Item>
             </Form>
         )
