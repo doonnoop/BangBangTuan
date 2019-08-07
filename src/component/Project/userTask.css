@@ -2,11 +2,11 @@
     text-align: center;
 }
 .myTasks .ant-tabs-nav-scroll .ant-tabs-nav {
-    background-color: #ffffff;
     font-size: 16px;
     padding-left: 60px;
     padding-right: 60px;
     border: 1px solid #e9e8e8;
+    background-color: #ffffff;
 }
 .myTasks .ant-tabs-nav .ant-tabs-tab-active {
     color: #ff6e37;
@@ -17,14 +17,9 @@
 .myTasks .ant-tabs-bar {
     margin: 0 0 -20px 0;
 }
-.ant-tabs .ant-tabs-top-content.ant-tabs-content-animated, .ant-tabs .ant-tabs-bottom-content.ant-tabs-content-animated {
-    background-color: #ffffff;
-}
-.ant-tabs .ant-tabs-top-content > .ant-tabs-tabpane, .ant-tabs .ant-tabs-bottom-content > .ant-tabs-tabpane {
-    background-color: #ffffff;
-}
 .workingTask {
     padding: 40px 20px 20px;
+    background-color: #ffffff;
 }
 .finish-btn {
     float: right;

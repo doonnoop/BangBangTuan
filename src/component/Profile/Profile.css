@@ -22,31 +22,21 @@
     position: absolute;
     top: 10px;
 }
-
-.nav-container {
-    width: 100%;
-    height: 120px;
-    background-color: #ffffff;
-    box-shadow: 0px 6px 10px 5px #e9e8e8;
-    margin-top: -20px;
+.profile-tabs .ant-tabs {
+    background-color: #f8fbfd;
 }
-.nav-container .navbar {
-    display: flex;
-    margin-top: 80px;
-    color: #333333;
-    font-weight: 500;
-    font-size: 16px;
-}
-.nav-container ul .nav {
-    list-style-type: none;
-    width: 70px;
+.profile-tabs > .ant-tabs-bar > .ant-tabs-nav-container > .ant-tabs-nav-wrap > .ant-tabs-nav-scroll {
     text-align: center;
-    display: inline-block;
-    cursor: pointer;
+    background-color: #ffffff;
+    padding-top: 50px;
+    font-size: 15px;
 }
-.nav-container ul .nav.active {
-    border-bottom: 3px solid #333333;
+.profile-tabs > .ant-tabs-bar > .ant-tabs-nav-container > .ant-tabs-nav-wrap > .ant-tabs-nav-scroll > .ant-tabs-nav .ant-tabs-tab {
+    margin: 0 100px 0 0;
 }
-.content-container {
-    margin-top: 40px;
+.profile-tabs > .ant-tabs-bar > .ant-tabs-nav-container > .ant-tabs-nav-wrap > .ant-tabs-nav-scroll > .ant-tabs-nav .ant-tabs-tab-active {
+    color: #333333;
+}
+.profile-tabs > .ant-tabs-bar > .ant-tabs-nav-container > .ant-tabs-nav-wrap > .ant-tabs-nav-scroll > .ant-tabs-nav > .ant-tabs-ink-bar {
+    background-color: #333333;
 }

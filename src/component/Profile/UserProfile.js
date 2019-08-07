@@ -135,7 +135,7 @@ class UserProfile extends Component{
                                     }
                                     onChange={(value)=>{this.handleChange(value,userInfo)}}
                                 >
-                                    {userInfo.headPortrait ? <img src={userInfo.headPortrait} alt="image" style={{ width: '100%' }} /> : uploadButton}
+                                    {userInfo.headPortrait ? <img src={userInfo.headPortrait} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
                                 </Upload>
                             </div>
                             <Form onSubmit={this.handleSubmit} {...formItemLayout}>

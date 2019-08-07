@@ -13,14 +13,7 @@ class Profile extends Component{
     constructor(props, context) {
         super(props, context);
         this.state = {
-            key: 'home',
-            tabs:[
-                {tabName:"动态",id:1},
-                {tabName:"学习日记",id:2},
-                {tabName:"个人中心",id:3},
-                {tabName:"收藏",id:4},
-            ],
-            currentIndex:1,
+            key: 'home'
         };
     }
 
@@ -78,31 +71,11 @@ class Profile extends Component{
 
     }
 
-    tabChoiced=(id)=>{
-        //tab切换到方法
-        this.setState({
-            currentIndex:id
-        });
-    };
-
     handleClick = (id) => {
         this.props.history.push("/userProfile/" + id)
     };
 
     render() {
-        let _this=this;
-        let isBox1Show=this.state.currentIndex===1 ? 'block' : 'none';
-        let isBox2Show=this.state.currentIndex===2 ? 'block' : 'none';
-        let isBox3Show=this.state.currentIndex===3 ? 'block' : 'none';
-        let isBox4Show=this.state.currentIndex===4 ? 'block' : 'none';
-
-        let tabList= this.state.tabs.map(function(res,index) {
-            // 遍历标签页，如果标签的id等于tabid，那么该标签就加多一个active的className
-            var tabStyle=res.id===this.state.currentIndex ? 'nav active' : 'nav';
-
-            return    <li key={index} onClick={this.tabChoiced.bind(_this,res.id)} className={tabStyle}>{res.tabName}</li>
-
-        }.bind(_this));
         return (
             <div>
                 <div className='header'>
@@ -124,49 +97,54 @@ class Profile extends Component{
                         <Col md={4}/>
                     </Row>
                 </div>
-                <div className='nav-container'>
-                    <Row>
-                        <Col md={5}/>
-                        <Col md={14}>
-                            <div className="listWrap">
-                                <ul className="navbar">
-                                    {tabList}
-                                </ul>
-                            </div>
-                        </Col>
-                        <Col md={5}/>
-                    </Row>
-                </div>
-                <div className="content-container">
-                    <Row>
-                        <Col md={5}/>
-                        <Col md={14}>
-                            <div style={{"display":isBox1Show}} >
+                <Tabs defaultActiveKey="1" className='profile-tabs'>
+                    <TabPane tab="动态" key="1">
+                        <Row>
+                            <Col md={4}/>
+                            <Col md={16}>
                                 {
                                     (this.state.userDaka &&
                                         <ClockItem dakaList={this.state.userDaka} />)
                                 }
-                            </div>
-                            <div style={{"display":isBox2Show}}>
+                            </Col>
+                            <Col md={4}/>
+                        </Row>
+                    </TabPane>
+                    <TabPane tab="学习日记" key="2">
+                        <Row>
+                            <Col md={4}/>
+                            <Col md={16}>
                                 {
                                     (this.state.userArticle &&
                                         <ArticleItem articles={this.state.userArticle} />)
                                 }
-                            </div>
-                            <div style={{"display":isBox3Show}}>
+                            </Col>
+                            <Col md={4}/>
+                        </Row>
+                    </TabPane>
+                    <TabPane tab="个人中心" key="3">
+                        <Row>
+                            <Col md={4}/>
+                            <Col md={16}>
                                 <Breadcrumb className='con-header' style={{ paddingLeft: 10, fontSize: 16, marginTop: 30, marginBottom: 30}}>
                                     <Breadcrumb.Item>个人中心</Breadcrumb.Item>
                                     <Breadcrumb.Item>我的任务</Breadcrumb.Item>
                                 </Breadcrumb>
                                 <UserTasks />
-                            </div>
-                            <div style={{"display":isBox4Show}}>
-                                收藏
-                            </div>
-                        </Col>
-                        <Col md={5}/>
-                    </Row>
-                </div>
+                            </Col>
+                            <Col md={4}/>
+                        </Row>
+                    </TabPane>
+                    <TabPane tab="收藏" key="4">
+                        <Row>
+                            <Col md={4}/>
+                            <Col md={16}>
+                                shoucang
+                            </Col>
+                            <Col md={4}/>
+                        </Row>
+                    </TabPane>
+                </Tabs>
             </div>
         )
     }
