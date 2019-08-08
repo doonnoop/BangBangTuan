@@ -41,7 +41,7 @@ class Project extends Component{
         return(
         <div>
             <Row>
-                <Col md={4}></Col>
+                <Col md={4} />
                 <Col md={16}>
                     <div className='con-header'>实战演练</div>
                     <div>
@@ -70,7 +70,7 @@ class Project extends Component{
 
                     </div>
                 </Col>
-                <Col md={4}></Col>
+                <Col md={4} />
             </Row>
         </div>)
     }

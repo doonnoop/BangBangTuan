@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Col, Row, message, Tabs, List, Radio } from "antd";
-import cpHeaderImg from '../images/cp.png';
-import cpLogo from '../images/cp-logo.png';
+import cpHeaderImg from '../../images/cp.png';
+import cpLogo from '../../images/cp-logo.png';
 import './Team.css';
-import storage from "./storage";
+import storage from "../storage";
 import {  withRouter } from 'react-router-dom';
 const { TabPane } = Tabs;
 

@@ -10,7 +10,7 @@ import Profile from './Profile/Profile';
 import Article from './Articles/Article';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ArticleDetails from "./Articles/ArticleDetails";
-import Team from "./Team";
+import Team from "./Team/Team";
 import PrivateRoute from './PrivateRoute'
 import AddArticle from "./Articles/AddArticle";
 import UserProfile from "./Profile/UserProfile";
@@ -18,11 +18,14 @@ import Logout from "./Logout";
 import Project from "./Project/Project";
 import ProjectDetails from "./Project/ProjectDetails";
 import ProjectTasks from "./Project/ProjectTasks";
+import StudyPath from "./StudyPath/StudyPath";
+import PathDetails from "./StudyPath/PathDetails";
 
 class App extends React.Component {
     render() {
+        document.body.style.backgroundColor = "#f8fbfd";
         return (
-            <div className='con'>
+            <div>
                 <Navigation />
                 <BrowserRouter>
                     <Switch>
@@ -56,6 +59,12 @@ class App extends React.Component {
                         }} />
                         <Route path="/task/:id" render={() => {
                             return <ProjectTasks />
+                        }} />
+                        <Route path="/path" render={() => {
+                            return <StudyPath />
+                        }} />
+                        <Route path="/pathDetail/:id/:index" render={() => {
+                            return <PathDetails />
                         }} />
                         <Route path="/login" render={() => {
                             return <Login />
