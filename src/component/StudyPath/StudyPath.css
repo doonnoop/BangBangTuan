@@ -9,6 +9,9 @@
         linear-gradient(225deg, transparent 10px, #1188f8 0)
         top right
 }
+.path-item {
+    margin-bottom: 20px;
+}
 .path-list .ant-list-item {
     padding: 12px;
     color: #000000;

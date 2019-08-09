@@ -43,7 +43,7 @@ class StudyPath extends Component{
                             return <div key={index}>
                                 <div className='path-header'>
                                     <div>{item.title}</div>
-                                    <div>用时： 3天</div>
+                                    <div>用时： {item.time}</div>
                                 </div>
                                 <PathInfo id={item.id} />
                             </div>

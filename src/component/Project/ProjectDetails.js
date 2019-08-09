@@ -79,7 +79,7 @@ class ProjectDetails extends Component{
                                 return <div key={index} className='relative-box'>
                                     <Content style={{background: '#fff', padding: 20, marginTop: 10}} className='border-shadow'>
                                         <div className='task-card'>
-                                            任务<span>{index + 1}</span>: {item.name}
+                                            任务<span>{item.title}</span>: {item.name}
                                         </div>
                                     </Content>
                                     <Link to={'/task/' + item.id} className='btn-detail'>查看详情</Link>

@@ -84,7 +84,7 @@ class ProjectTasks extends Component{
                                 <div className='relative-box'>
                                     <Content style={{background: '#fff', padding: 20, marginTop: 10}} className='border-shadow'>
                                         <div className='task-card'>
-                                            任务<span>{this.state.task + 1}</span>： {this.state.task.name}
+                                            任务<span>{this.state.task.title}</span>： {this.state.task.name}
                                         </div>
                                         <div style={detail}>
                                             任务详情： {this.state.task.details}

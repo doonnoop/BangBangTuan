@@ -35,7 +35,7 @@ class PathInfo extends Component{
         return(
             <div>
                 {
-                    this.state.pathInfo && <div>
+                    this.state.pathInfo && <div className='path-item'>
                         <List
                             className='path-list'
                             split
@@ -49,9 +49,13 @@ class PathInfo extends Component{
                                 </div>
                             )}
                         />
-                        <div className={this.state.pathInfo.length + 1 % 2 === 0 ? 'load dark' : 'load light'}>
-                            <div>查看更多》</div>
-                        </div>
+                        {
+                            this.state.pathInfo.length > 0 &&
+                            <div className={this.state.pathInfo.length + 1 % 2 === 0 ? 'load dark' : 'load light'}>
+                                <div>查看更多》</div>
+                            </div>
+                        }
+
                     </div>
                 }
             </div>
