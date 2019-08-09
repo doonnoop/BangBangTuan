@@ -47,7 +47,7 @@ class PathDetails extends Component{
                                     <div>
                                         内容简介
                                         <div style={{float: 'right', fontWeight: 400, fontSize: 14}}>用时
-                                            <span className='mainColor'>16</span> 天
+                                            <span className='mainColor'>{this.state.pathDetail.time}</span> 天
                                         </div>
                                     </div>
                                 } column={1}>
