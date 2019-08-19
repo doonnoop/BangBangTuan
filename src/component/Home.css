@@ -45,7 +45,7 @@
 .cal-box .ant-fullcalendar-today .ant-fullcalendar-value, .ant-fullcalendar-month-panel-current-cell .ant-fullcalendar-value {
     box-shadow: 0 0 0 1px #ff6e37 inset;
 }
-.ant-fullcalendar-header{
+.cal-box .ant-fullcalendar-header{
     display:none;
 }
 .cal-head {
@@ -63,11 +63,15 @@
     justify-content: space-between;
     border: 1px solid #ff6e37;
 }
-.left-foot div:first-child{
+.left-head{
     font-size: 14px;
     font-weight: 600;
     border-left: 4px solid #ff6e37;
     padding-left: 5px;
+}
+.cal-foot .ant-list-empty-text {
+    padding: 0;
+    display: none;
 }
 .right-foot {
     display: flex;

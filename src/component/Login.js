@@ -49,9 +49,9 @@ class Login extends Component{
         const { getFieldDecorator } = this.props.form;
         return (
             <Row>
-                <Col md={6}></Col>
+                <Col md={6} />
                 <Col md={12} className='box'>
-                    <Col md={4}></Col>
+                    <Col md={4} />
                     <Col md={16}>
                         <Tabs defaultActiveKey="1" className='nav-tab'>
                             <TabPane tab="登陆" key="1">
@@ -90,9 +90,9 @@ class Login extends Component{
                             </TabPane>
                         </Tabs>
                     </Col>
-                    <Col md={6}></Col>
+                    <Col md={6} />
                 </Col>
-                <Col md={6}></Col>
+                <Col md={6} />
             </Row>
         )
     }

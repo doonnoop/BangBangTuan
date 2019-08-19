@@ -4,7 +4,7 @@ import home2 from '../images/home2.png';
 import './Home.css';
 import testImg from '../images/author.jpg';
 import actImg from '../images/act.png';
-import {Row, Col, Carousel, Calendar, Descriptions } from "antd";
+import {Row, Col, Carousel, Calendar, Descriptions, List } from "antd";
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
@@ -17,7 +17,31 @@ class Home extends Component{
         }
     }
 
-    onChange = date => this.setState({ date })
+    componentWillMount() {
+        this.getScheduleByDate(moment(this.state.date).format("YYYY-MM-DD"))
+    }
+
+    onDataSelect = (date) => {
+        console.log(moment(date).format("YYYY-MM-DD"));
+        let selectedDate = moment(date).format("YYYY-MM-DD");
+        this.getScheduleByDate(selectedDate);
+    };
+
+    getScheduleByDate = (date) => {
+        fetch('https://api.bangneedu.com/schedule/' + date, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }})
+            .then((res) => res.json())
+            .then( res => {
+                console.log(res)
+                this.setState({
+                    schedule: res.data
+                });
+            })
+            .catch( err => console.log(err))
+    }
 
     render() {
         return <div className='home'>
@@ -32,7 +56,7 @@ class Home extends Component{
                 </Carousel>
             </div>
             <Row gutter={8} className='home-container'>
-                <Col md={4} className='left-container'></Col>
+                <Col md={4} className='left-container' />
                 <Col md={14}>
                     <div className='mid-header'>
                         <img src={actImg} alt=''/>
@@ -58,10 +82,21 @@ class Home extends Component{
                 <Col md={6}>
                     <div className='cal-box'>
                         <div className='cal-head'>棒棒团学习日程表</div>
-                            <Calendar fullscreen={false}  />
+                            <Calendar fullscreen={false} onSelect={this.onDataSelect} />
                         <div className='cal-foot'>
-                            <div className='left-foot'>
-                                <div>今日安排</div>
+                            <div>
+                                <div className='left-head'>今日安排</div>
+                                {
+                                    this.state.schedule &&
+                                    <List
+                                        dataSource={this.state.schedule}
+                                        renderItem={item => (
+                                            <List.Item>
+                                                {item.title}
+                                            </List.Item>
+                                        )}
+                                    />
+                                }
                             </div>
                             <div className='right-foot'>
                                 <img src={testImg} alt=''/>
