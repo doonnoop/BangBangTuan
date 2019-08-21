@@ -20,6 +20,8 @@ import ProjectDetails from "./Project/ProjectDetails";
 import ProjectTasks from "./Project/ProjectTasks";
 import StudyPath from "./StudyPath/StudyPath";
 import PathDetails from "./StudyPath/PathDetails";
+import Shop from "./Shop/Shop";
+import ShopItem from "./Shop/ShopItem";
 
 class App extends React.Component {
     render() {
@@ -65,6 +67,12 @@ class App extends React.Component {
                         }} />
                         <Route path="/pathDetail/:id/:index" render={() => {
                             return <PathDetails />
+                        }} />
+                        <Route path="/shop" render={() => {
+                            return <Shop />
+                        }} />
+                        <Route path="/shopitem/:id" render={() => {
+                            return <ShopItem />
                         }} />
                         <Route path="/login" render={() => {
                             return <Login />
