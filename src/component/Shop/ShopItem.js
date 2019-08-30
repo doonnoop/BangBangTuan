@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import { Row, Col, Button, Card, Divider, Breadcrumb, Descriptions, InputNumber, Tabs } from 'antd';
 import './ShopItem.css';
 import ExchangeActivity from "./ExchangeActivity";
+import {withRouter} from 'react-router-dom';
 const { TabPane } = Tabs;
 
 class ShopItem extends Component{
@@ -24,6 +25,10 @@ class ShopItem extends Component{
         this.setState({
             changeNum: value
         })
+    };
+
+    orderItem = () => {
+        this.props.history.push("/orderInfo");
     };
 
     render() {
@@ -59,7 +64,7 @@ class ShopItem extends Component{
                                             <InputNumber min={1} max={5} defaultValue={1} onChange={this.numChange} />
                                         </Descriptions.Item>
                                         <Descriptions.Item>
-                                            <Button shape='round'>兑换商品</Button>
+                                            <Button shape='round' onClick={this.orderItem}>兑换商品</Button>
                                         </Descriptions.Item>
                                     </Descriptions>
                                 </Col>
@@ -95,6 +100,6 @@ class ShopItem extends Component{
     }
 }
 
-export default ShopItem;
+export default withRouter(ShopItem);
 
 

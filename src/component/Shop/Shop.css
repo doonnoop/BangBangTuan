@@ -60,3 +60,55 @@
 .sider .ant-divider-horizontal {
     margin: 10px 0;
 }
+
+
+
+.exchange-info .sider {
+    padding: 40px;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    font-size: 10px;
+    text-align: center;
+}
+.div1 {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.div2 {
+    color: #f8fb0a;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+.success .ant-btn {
+    background-color: #8bc34a;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 0 20px;
+    margin-bottom: 25px;
+}
+.exchange-info .content {
+    padding: 30px 30px 20px;
+    font-size: 12px;
+}
+.fail {
+    display: flex;
+}
+.fail .ant-btn {
+    background-color: #f64b4c;
+    color: #ffffff;
+    font-size: 11px;
+    margin-bottom: 25px;
+    margin-right: 10px;
+    width: 131px;
+}
+.content .title, .content .title .ant-descriptions-item-content {
+    font-size: 26px;
+    padding-bottom: 0;
+}
+.content .info .ant-descriptions-item-content {
+    color: #f64b4c;
+}

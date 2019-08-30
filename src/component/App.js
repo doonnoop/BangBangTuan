@@ -22,6 +22,9 @@ import StudyPath from "./StudyPath/StudyPath";
 import PathDetails from "./StudyPath/PathDetails";
 import Shop from "./Shop/Shop";
 import ShopItem from "./Shop/ShopItem";
+import OrderInfo from "./Shop/OrderInfo";
+import ExchangeSuccess from "./Shop/ExchangeSuccess";
+import ExchangeFail from "./Shop/ExchangeFail";
 
 class App extends React.Component {
     render() {
@@ -73,6 +76,15 @@ class App extends React.Component {
                         }} />
                         <Route path="/shopitem/:id" render={() => {
                             return <ShopItem />
+                        }} />
+                        <Route path="/orderInfo" render={() => {
+                            return <OrderInfo />
+                        }} />
+                        <Route path="/exchangeSuccess" render={() => {
+                            return <ExchangeSuccess />
+                        }} />
+                        <Route path="/exchangeFail" render={() => {
+                            return <ExchangeFail />
                         }} />
                         <Route path="/login" render={() => {
                             return <Login />
