@@ -1,0 +1,85 @@
+.header-only .ant-table-placeholder {
+    padding: 0;
+    border: none;
+}
+.header-only .ant-table-thead > tr > th {
+    background: none;
+    padding: 0;
+    text-align: center;
+}
+.card {
+    border: none;
+}
+.card .ant-card-head {
+    min-height: 0;
+    font-size: 12px;
+    background-color: #f1f1f1;
+}
+.card .ant-card-head-title, .card .ant-card-extra {
+    padding: 5px 0;
+    font-size: 12px;
+}
+.card .ant-card-body {
+    padding: 0;
+}
+.card-table .ant-table-thead {
+    display: none;
+}
+.card-table .ant-table table {
+    border-radius: 0;
+    text-align: center;
+}
+.card-table .ant-table-thead > tr > th, .card-table .ant-table-tbody > tr > td {
+    padding: 10px 10px;
+}
+
+
+
+
+.order-header-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.order-header .ant-divider-horizontal {
+    margin: 5px 0;
+}
+.order-header-status {
+    color: #8bc34a;
+    margin: 20px 0;
+}
+.progress-text {
+    display: flex;
+    justify-content: space-around;
+    font-size: 11px;
+    margin-top: -18px;
+}
+.progress-date {
+    display: flex;
+    font-size: 10px;
+}
+.progress-date p {
+    width: 20%;
+    text-align: center;
+}
+.order-detail-list {
+    margin: 20px 0;
+}
+.order-detail-list .ant-divider-horizontal {
+    margin: 0;
+}
+.contact .ant-divider-horizontal {
+    margin-top: 10px;
+}
+.contact .ant-descriptions-title  {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+.contact .ant-descriptions-item-label, .contact .ant-descriptions-item-content {
+    font-size: 12px;
+}
+.contact .ant-descriptions-row > td {
+    padding-bottom: 0;
+}
+.subtotal {
+    text-align: right;
+}

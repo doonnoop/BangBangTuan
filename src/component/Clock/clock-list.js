@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import './Clock.css';
 import noAuthor from '../../images/no-author.png';
-// import chatImg from '../../images/chat.png';
-// import likeImg from '../../images/like.png';
-// import likeActImg from '../../images/like-act.png';
 import countImg from '../../images/count.png';
 import storage from "../storage";
 import { withRouter } from 'react-router-dom';
@@ -188,7 +185,7 @@ class ClockItem extends Component{
                                             }
                                             content={
                                                 <div>
-                                                    <p className='content'>{item.content}</p>
+                                                    <p className='content' style={{marginTop: 30}}>{item.content}</p>
                                                 </div>
                                             }
                                             datetime={item.createTime}

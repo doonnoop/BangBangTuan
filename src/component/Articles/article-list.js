@@ -25,7 +25,7 @@ class ArticleItem extends Component{
                                 }
                                 content={
                                     <div>
-                                        <p className='content'>{item.content}</p>
+                                        <p className='content' style={{marginTop: 30}}>{item.content}</p>
                                     </div>
                                 }
                                 datetime={

@@ -25,6 +25,8 @@ import ShopItem from "./Shop/ShopItem";
 import OrderInfo from "./Shop/OrderInfo";
 import ExchangeSuccess from "./Shop/ExchangeSuccess";
 import ExchangeFail from "./Shop/ExchangeFail";
+import UserOrderList from "./Shop/UserOrderList";
+import OrderDetails from "./Shop/OrderDetails";
 
 class App extends React.Component {
     render() {
@@ -85,6 +87,12 @@ class App extends React.Component {
                         }} />
                         <Route path="/exchangeFail" render={() => {
                             return <ExchangeFail />
+                        }} />
+                        <Route path="/orderList" render={() => {
+                            return <UserOrderList />
+                        }} />
+                        <Route path="/orderDetails" render={() => {
+                            return <OrderDetails />
                         }} />
                         <Route path="/login" render={() => {
                             return <Login />

@@ -1,6 +1,5 @@
 .shop-head {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
@@ -24,6 +23,9 @@
 }
 .col .ant-card-body {
     padding: 15px;
+}
+.col img {
+    height: 160px;
 }
 .item-desc .ant-card-meta-title {
     font-size: 14px;

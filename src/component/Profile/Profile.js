@@ -7,6 +7,7 @@ import ArticleItem from '../Articles/article-list';
 import storage from '../storage';
 import { withRouter } from 'react-router-dom';
 import UserTasks from "../Project/userTasks";
+import UserOrderList from "../Shop/UserOrderList";
 const { TabPane } = Tabs;
 
 class Profile extends Component{
@@ -126,7 +127,7 @@ class Profile extends Component{
                         <Row>
                             <Col md={4}/>
                             <Col md={16}>
-                                <Breadcrumb className='con-header' style={{ paddingLeft: 10, fontSize: 16, marginTop: 30, marginBottom: 30}}>
+                                <Breadcrumb className='con-header' style={{ paddingLeft: 10, fontSize: 14, marginTop: 30, marginBottom: 30}}>
                                     <Breadcrumb.Item>个人中心</Breadcrumb.Item>
                                     <Breadcrumb.Item>我的任务</Breadcrumb.Item>
                                 </Breadcrumb>
@@ -135,11 +136,28 @@ class Profile extends Component{
                             <Col md={4}/>
                         </Row>
                     </TabPane>
-                    <TabPane tab="收藏" key="4">
+                    <TabPane tab="积分商城" key="4">
                         <Row>
                             <Col md={4}/>
                             <Col md={16}>
-                                shoucang
+                                <Breadcrumb className='con-header' style={{ paddingLeft: 10, fontSize: 14, marginTop: 30, marginBottom: 30}}>
+                                    <Breadcrumb.Item>个人中心</Breadcrumb.Item>
+                                    <Breadcrumb.Item>积分商城</Breadcrumb.Item>
+                                </Breadcrumb>
+                                <Tabs defaultActiveKey="1" className='order-tab'>
+                                    <TabPane tab="所有订单" key="1">
+                                        <UserOrderList />
+                                    </TabPane>
+                                    <TabPane tab="待兑换" key="2">
+                                        Content of Tab Pane 2
+                                    </TabPane>
+                                    <TabPane tab="待发货" key="3">
+                                        Content of Tab Pane 3
+                                    </TabPane>
+                                    <TabPane tab="待收货" key="4">
+                                        Content of Tab Pane 3
+                                    </TabPane>
+                                </Tabs>
                             </Col>
                             <Col md={4}/>
                         </Row>

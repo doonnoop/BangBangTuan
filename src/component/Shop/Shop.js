@@ -15,40 +15,68 @@ class Shop extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            goods: [1,2,3,4]
+            goods: []
         }
     }
 
     componentWillMount() {
-
+        if(storage.get('token')) {
+            fetch('https://api.bangneedu.com/user', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": "Bearer " + storage.get('token')
+                }})
+                .then((res) => res.json())
+                .then( res => {
+                    this.setState({
+                        userInfo: res.data
+                    });
+                })
+                .catch( err => console.log(err));
+        }
+        fetch('https://api.bangneedu.com/commodity?current=1&size=10', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }})
+            .then((res) => res.json())
+            .then( res => {
+                console.log(res.data.records);
+                this.setState({
+                    goods: res.data.records
+                });
+            })
+            .catch( err => console.log(err))
     }
 
     chooseShopItem = (id) => {
-        this.props.history.push("/shopitem/id")
+        this.props.history.push("/shopitem/" + id)
     };
 
     render() {
-        let headPortrait = storage.get('headPortrait');
         return(
             <Row>
                 <Col md={5} />
                 <Col md={14}>
-                    <div className='shop-head'>
-                        <Comment
-                            className='points'
-                            avatar={
-                                <Avatar
-                                    src={headPortrait ? headPortrait : noAuthor}
-                                    alt="avatar"
-                                />
-                            }
-                            author="aaa"
-                            content={
-                                <p>积分：23</p>
-                            }
-                        />
-                        <Button shape='round'>兑换记录</Button>
-                    </div>
+                    {
+                        this.state.userInfo && <div className='shop-head'>
+                            <Comment
+                                className='points'
+                                avatar={
+                                    <Avatar
+                                        src={this.state.userInfo.headPortrait ? this.state.userInfo.headPortrait : noAuthor}
+                                        alt="avatar"
+                                    />
+                                }
+                                author={this.state.userInfo.name}
+                                content={
+                                    <p>积分：{this.state.userInfo.integral ? this.state.userInfo.integral : 0}</p>
+                                }
+                            />
+                            <Button shape='round'>兑换记录</Button>
+                        </div>
+                    }
                     <div>
                         <Col span={18}>
                             {
@@ -58,15 +86,15 @@ class Shop extends Component{
                                             hoverable
                                             style={{ width: 190 }}
                                             bordered={false}
-                                            cover={<img alt="example" src="https://i.imgur.com/qbpIXLX.jpg" />}
+                                            cover={<img alt="商品图片" src={item.commodityImage} />}
                                         >
-                                            <Meta title="拍立得"
+                                            <Meta title={item.commodityName}
                                                   className='item-desc'
                                                   description={
                                                       <div>
-                                                          <div>价值： 500积分</div>
+                                                          <div>价值： {item.commodityPrice}积分</div>
                                                           <div align="center">
-                                                              <Button shape='round' onClick={() => this.chooseShopItem(index)}>兑换商品</Button>
+                                                              <Button shape='round' onClick={() => this.chooseShopItem(item.id)}>兑换商品</Button>
                                                           </div>
                                                       </div>
                                                   }

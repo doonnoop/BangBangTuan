@@ -18,7 +18,20 @@ class ShopItem extends Component{
     }
 
     componentWillMount() {
-
+        console.log(this.props.match.params.id);
+        fetch('https://api.bangneedu.com/commodity/' + this.props.match.params.id, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }})
+            .then((res) => res.json())
+            .then( res => {
+                console.log(res.data);
+                this.setState({
+                    commodity: res.data
+                });
+            })
+            .catch( err => console.log(err))
     }
 
     numChange = (value) => {
