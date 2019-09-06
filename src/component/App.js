@@ -91,7 +91,7 @@ class App extends React.Component {
                         <Route path="/orderList" render={() => {
                             return <UserOrderList />
                         }} />
-                        <Route path="/orderDetails" render={() => {
+                        <Route path="/orderDetails/:id" render={() => {
                             return <OrderDetails />
                         }} />
                         <Route path="/login" render={() => {

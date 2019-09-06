@@ -10,12 +10,25 @@ class ExchangeActivity extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            history: [1,2,3,4,5]
+
         }
     }
 
     componentWillMount() {
-
+        fetch('https://api.bangneedu.com/orderForm', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then((res) => res.json())
+            .then( res => {
+                console.log(res);
+                this.setState({
+                    history: res.data
+                })
+            })
+            .catch( err => console.log(err))
     }
 
     render() {
@@ -25,8 +38,8 @@ class ExchangeActivity extends Component{
                 {
                     this.state.history && this.state.history.map((item, index) => {
                         return <div key={index}>
-                            <div>刘昊然的虎牙在我手里</div>
-                            <div>兑换了 <span className='mainColor'>拍立得</span></div>
+                            <div>{item.name}</div>
+                            <div>兑换了 <span className='mainColor'>{item.commodityName}</span></div>
                             <Divider />
                         </div>
                     })

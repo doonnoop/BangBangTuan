@@ -87,3 +87,21 @@
     display: flex;
     justify-content: space-between;
 }
+
+
+.address-book .ant-spin-container {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 60px;
+    padding: 15px 10px;
+}
+.address-book .ant-btn {
+    padding: 0 5px;
+    margin-right: 20px;
+}
+.address-book .ant-btn:hover, .address-book .ant-btn:focus {
+    border-color: #ff6e37;
+    color: #ff6e37;
+}
+.address-book .ant-list-items div {
+    margin-right: 10px;
+}

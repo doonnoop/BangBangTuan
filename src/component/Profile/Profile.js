@@ -66,11 +66,26 @@ class Profile extends Component{
                     });
                 })
                 .catch( err => console.log(err))
+            fetch('https://api.bangneedu.com/orderForm/0', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": "Bearer " + token
+                }})
+                .then((res) => res.json())
+                .then( res => {
+                    console.log(res.data);
+                    this.setState({
+                        allOrders: res.data
+                    });
+                })
+                .catch( err => console.log(err))
         } else {
             storage.set('token', false);
         }
 
     }
+
 
     handleClick = (id) => {
         this.props.history.push("/userProfile/" + id)
@@ -146,7 +161,7 @@ class Profile extends Component{
                                 </Breadcrumb>
                                 <Tabs defaultActiveKey="1" className='order-tab'>
                                     <TabPane tab="所有订单" key="1">
-                                        <UserOrderList />
+                                        <UserOrderList orders={this.state.allOrders} />
                                     </TabPane>
                                     <TabPane tab="待兑换" key="2">
                                         Content of Tab Pane 2

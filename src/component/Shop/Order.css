@@ -1,11 +1,8 @@
-.header-only .ant-table-placeholder {
-    padding: 0;
-    border: none;
-}
-.header-only .ant-table-thead > tr > th {
-    background: none;
-    padding: 0;
-    text-align: center;
+.header-only {
+    display: flex;
+    justify-content: space-evenly;
+    color: #333333;
+    font-weight: 500;
 }
 .card {
     border: none;
@@ -82,4 +79,44 @@
 }
 .subtotal {
     text-align: right;
+}
+
+
+.order-list-title {
+    display: flex;
+    color: #999999;
+}
+.order-list-title div {
+    margin-right: 30px;
+}
+.table-list .ant-descriptions-row .ant-descriptions-item-label {
+    display: none;
+}
+.table-list .ant-descriptions-row .ant-descriptions-item-content {
+    text-align: center;
+}
+.order-action {
+    display: flex;
+    flex-direction: column;
+    color: #666666;
+}
+.order-action .ant-btn {
+    background-color: #ff6e37;
+    color: #ffffff;
+    font-weight: 500;
+    border: none;
+    padding: 0 0;
+    margin-top: 5px;
+}
+.order-action-button {
+    float: right;
+    margin-top: 20px;
+}
+.order-action-button .ant-btn {
+    background-color: #ff6e37;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    padding: 0 20px;
 }
