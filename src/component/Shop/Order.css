@@ -49,6 +49,7 @@
     justify-content: space-around;
     font-size: 11px;
     margin-top: -18px;
+    color: #ffffff;
 }
 .progress-date {
     display: flex;

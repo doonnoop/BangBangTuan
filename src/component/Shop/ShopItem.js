@@ -93,13 +93,17 @@ class ShopItem extends Component{
                                     <Tabs defaultActiveKey="1">
                                         <TabPane tab="商品详情" key="1">
                                             <div className='desc'>
-                                                <div>{this.state.commodity.commodityName}</div>
-                                                <div>{this.state.commodity.commoditySpecifications}</div>
-                                                <div className='img'>
-                                                    <img alt="商品图片" src={this.state.commodity.commodityImage} />
-                                                </div>
-                                                <div>注意事项</div>
-                                                <div>{this.state.commodity.commodityDetails}</div>
+                                                {/*<div>{this.state.commodity.commodityName}</div>*/}
+                                                {/*<div>{this.state.commodity.commoditySpecifications}</div>*/}
+                                                {/*<div className='img'>*/}
+                                                {/*    <img alt="商品图片" src={this.state.commodity.commodityImage} />*/}
+                                                {/*</div>*/}
+                                                {/*<div>注意事项</div>*/}
+                                                {/*<div>{this.state.commodity.commodityDetails}</div>*/}
+                                                <div
+                                                    className="content"
+                                                    dangerouslySetInnerHTML={{ __html: this.state.commodity.commodityDetails}}
+                                                />
                                             </div>
                                         </TabPane>
                                         {/*<TabPane tab="Tab 2" key="2">*/}

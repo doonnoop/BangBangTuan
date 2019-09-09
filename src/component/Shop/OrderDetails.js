@@ -117,8 +117,11 @@ class OrderDetails extends Component{
                                     <p>交易完成</p>
                                 </div>
                                 <div className='progress-date'>
-                                    <p>07月15日 14：59</p>
-                                    <p>07月15日 14：59</p>
+                                    <p>{this.state.orderDetail.createTime ? this.state.orderDetail.createTime : ""}</p>
+                                    <p>{this.state.orderDetail.paymentTime ? this.state.orderDetail.paymentTime : ""}</p>
+                                    <p>{this.state.orderDetail.outboundTime ? this.state.orderDetail.outboundTime : ""}</p>
+                                    <p>{this.state.orderDetail.distributionTime ? this.state.orderDetail.distributionTime : ""}</p>
+                                    <p>{this.state.orderDetail.completeTime ? this.state.orderDetail.completeTime : ""}</p>
                                 </div>
                             </div>
                             <div className='contact'>
