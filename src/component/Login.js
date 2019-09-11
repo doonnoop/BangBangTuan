@@ -78,7 +78,7 @@ class Login extends Component{
                                         )}
                                     </Form.Item>
                                     <Form.Item>
-                                        <a className="login-form-forgot" href="/">忘记密码？</a>
+                                        <a className="login-form-forgot" href="/reset">忘记密码？</a>
                                     </Form.Item>
                                     <Form.Item>
                                         <Button type="primary" htmlType="submit">登陆</Button>

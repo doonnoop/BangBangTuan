@@ -17,7 +17,7 @@
 .nav-tab .ant-tabs-ink-bar {
     background-color: #ff6e37;
 }
-.nav-tab .ant-btn-primary {
+.nav-tab .ant-btn-primary, .reset-form .ant-btn-primary{
     display: block;
     background-color: #ff6e37;
     border-color: #ff6e37;
@@ -32,6 +32,12 @@
 .nav-tab .ant-tabs-nav-scroll {
     text-align: center;
 }
-.nav-tab .ant-input-group .ant-btn-primary {
+.nav-tab .ant-input-group .ant-btn-primary, .reset-form .ant-input-group .ant-btn-primary {
     border-radius: 5px;
+}
+.reset-form .ant-divider-inner-text {
+    color: #999999;
+}
+.reset-form .ant-divider-horizontal.ant-divider-with-text-center {
+    margin-bottom: 40px;
 }
