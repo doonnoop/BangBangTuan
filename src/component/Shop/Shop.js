@@ -92,7 +92,7 @@ class Shop extends Component{
                                                   className='item-desc'
                                                   description={
                                                       <div>
-                                                          <div>价值： {item.commodityPrice}积分</div>
+                                                          <div>价值： {item.commodityPrice}积分 + ¥{item.commodityFreight}</div>
                                                           <div align="center">
                                                               <Button shape='round' onClick={() => this.chooseShopItem(item.id)}>兑换商品</Button>
                                                           </div>

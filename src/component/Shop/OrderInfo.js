@@ -272,7 +272,7 @@ class OrderInfo extends Component{
                                     <div className='checkout-details'>
                                         <Descriptions column={1} className='checkout'>
                                             <Descriptions.Item label="2件商品，总消费积分">{this.state.totalAmount}积分</Descriptions.Item>
-                                            <Descriptions.Item label="运费">¥ {this.state.commodity.commodityFreight}</Descriptions.Item>
+                                            <Descriptions.Item label="价格">¥ {this.state.commodity.commodityFreight}</Descriptions.Item>
                                             <Descriptions.Item label="应付金额">{this.state.totalAmount}积分 + {this.state.commodity.commodityFreight}元</Descriptions.Item>
                                         </Descriptions>
                                         <Button onClick={this.ConformExchange}>确认兑换</Button>

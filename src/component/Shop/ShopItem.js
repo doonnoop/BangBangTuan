@@ -76,7 +76,7 @@ class ShopItem extends Component{
                                     <Col span={14}>
                                         <Descriptions title={this.state.commodity.commodityName} column={1}>
                                             <Descriptions.Item label="价值">{this.state.commodity.commodityPrice}积分</Descriptions.Item>
-                                            <Descriptions.Item label="运费">{this.state.commodity.commodityFreight}</Descriptions.Item>
+                                            <Descriptions.Item label="价格"><div style={{color: 'red'}}>¥ {this.state.commodity.commodityFreight}</div></Descriptions.Item>
                                         </Descriptions>
                                         <Divider />
                                         <Descriptions column={1}>
@@ -93,13 +93,6 @@ class ShopItem extends Component{
                                     <Tabs defaultActiveKey="1">
                                         <TabPane tab="商品详情" key="1">
                                             <div className='desc'>
-                                                {/*<div>{this.state.commodity.commodityName}</div>*/}
-                                                {/*<div>{this.state.commodity.commoditySpecifications}</div>*/}
-                                                {/*<div className='img'>*/}
-                                                {/*    <img alt="商品图片" src={this.state.commodity.commodityImage} />*/}
-                                                {/*</div>*/}
-                                                {/*<div>注意事项</div>*/}
-                                                {/*<div>{this.state.commodity.commodityDetails}</div>*/}
                                                 <div
                                                     className="content"
                                                     dangerouslySetInnerHTML={{ __html: this.state.commodity.commodityDetails}}
