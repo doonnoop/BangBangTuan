@@ -89,7 +89,6 @@ class OrderInfo extends Component{
                 delete values.postalCode;
             }
             console.log('Received values of form: ', values);
-            form.resetFields();
             fetch('https://api.bangneedu.com/bbtUserAddress', {
                 method: 'POST',
                 headers: {
@@ -108,6 +107,7 @@ class OrderInfo extends Component{
                     this.getUserAddressed();
                 })
                 .catch( err => console.log(err))
+            form.resetFields();
         });
 
     };
