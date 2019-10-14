@@ -19,7 +19,15 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>BangBangTuan</title>
+      <script>
+          var _hmt = _hmt || [];
+          _hmt.push('_requirePlugin',  'UrlChangeTracker',  {
+              shouldTrackUrlChange:  function (newPath, oldPath)  {
+                  return newPath && oldPath;
+              }
+          });
+      </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -34,5 +42,14 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+        window._hmt = _hmt;
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?bf70ceb2c42d7b7d52cb1d2843881cf6";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
   </body>
 </html>

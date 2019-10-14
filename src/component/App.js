@@ -32,31 +32,9 @@ import ResetPassword from "./ResetPassword";
 class App extends React.Component {
 
     render() {
-        const baiduTongji = () => {
-            window._hmt = window._hmt || [];
-            let sc;
-            (function () {
-                if ((sc = document.getElementById('root'))) {
-                    document.head.removeChild(sc);
-                }
-                let hm = document.createElement('script');
-                hm.src = "https://hm.baidu.com/hm.js?bf70ceb2c42d7b7d52cb1d2843881cf6";
-                hm.id = 'root';
-                let s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(hm, s);
-            })();
-        };
-
-        // router.befroeEach(() => {
-        //     if (线上环境判断) {
-        //         baiduTongji();
-        //         _hmt && _hmt.push(['_trackPageview', to.fullPath]);
-        //     }
-        // });
-
         const GetBaidu = props => {
             let children = props.children;
-            window._hmt = window._hmt || [];
+            let _hmt = _hmt || [];
             (function() {
                 var hm = document.createElement("script");
                 hm.src = "https://hm.baidu.com/hm.js?bf70ceb2c42d7b7d52cb1d2843881cf6";
@@ -72,7 +50,7 @@ class App extends React.Component {
                 <Navigation />
                 <BrowserRouter>
                     <Switch>
-                        <GetBaidu>
+                        {/*<GetBaidu>*/}
                             <Route path="/" component={Home} exact />
                             <Route path="/clock" render={() => {
                                 return <Clock />
@@ -144,7 +122,7 @@ class App extends React.Component {
                                 return <ResetPassword/>
                             }} />
                             <Route component={PageNotFound}/>
-                        </GetBaidu>
+                        {/*</GetBaidu>*/}
                     </Switch>
                 </BrowserRouter>
             </div>

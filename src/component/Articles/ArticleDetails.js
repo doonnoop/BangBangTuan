@@ -115,7 +115,7 @@ class ArticleDetails extends Component{
 
                                         }
                                         content={
-                                            <div>
+                                            <div style={{marginTop: 40}}>
                                                 <ReactMarkdown className='content' source={article.content} />
                                             </div>
                                         }
