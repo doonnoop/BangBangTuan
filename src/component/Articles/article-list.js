@@ -9,7 +9,7 @@ import { Comment, Icon} from 'antd';
 
 class ArticleItem extends Component{
     render() {
-        let articles = this.props.articles.reverse();
+        let articles = this.props.articles;
         return (
             <div className='article-list'>
                 {

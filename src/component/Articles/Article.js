@@ -29,7 +29,7 @@ class Article extends Component{
         })
             .then((res) => res.json())
             .then( res => {
-                console.log(res.data.records);
+                console.log(res.data);
                 if(res.status === 200) {
                     this.setState({
                         articles: res.data.records,
