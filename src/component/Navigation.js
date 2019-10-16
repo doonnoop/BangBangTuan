@@ -2,6 +2,7 @@ import React from 'react';
 import './Navigation.css';
 import { Navbar, Nav } from 'react-bootstrap';
 import noAuthor from '../images/no-author.png';
+import logo from '../images/logo.png';
 import storage from "./storage";
 import authService from "../services/authService";
 
@@ -73,7 +74,7 @@ export default class Navigation extends React.Component {
         return (
             <div className='navigation'>
                 <Navbar bg="light" expand="lg">
-                    <Navbar.Brand href="/">帮帮团</Navbar.Brand>
+                    <Navbar.Brand href="/"><img src={logo} alt="棒棒团" className='logo' /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">

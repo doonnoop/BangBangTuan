@@ -29,3 +29,9 @@
     border: none;
     margin-left: -50px;
 }
+.logo {
+    width: 80px;
+}
+.navigation .navbar-brand {
+    width: 80px;
+}
