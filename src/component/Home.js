@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import home1 from '../images/home1.png';
-import home2 from '../images/home2.png';
 import './Home.css';
 import testImg from '../images/author.jpg';
 import actImg from '../images/act.png';
 import {Row, Col, Carousel, Calendar, Descriptions, List } from "antd";
 import moment from 'moment';
 import 'moment/locale/zh-cn';
+import { Link } from 'react-router-dom';
 moment.locale('zh-cn');
 
 class Home extends Component{
@@ -18,7 +17,8 @@ class Home extends Component{
     }
 
     componentWillMount() {
-        this.getScheduleByDate(moment(this.state.date).format("YYYY-MM-DD"))
+        this.getScheduleByDate(moment(this.state.date).format("YYYY-MM-DD"));
+        this.getBanners();
     }
 
     onDataSelect = (date) => {
@@ -41,18 +41,36 @@ class Home extends Component{
                 });
             })
             .catch( err => console.log(err))
-    }
+    };
+
+    getBanners = () => {
+        fetch('https://api.bangneedu.com/carouselImage', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }})
+            .then((res) => res.json())
+            .then( res => {
+                console.log(res)
+                this.setState({
+                    banners: res.data.records
+                });
+            })
+            .catch( err => console.log(err))
+    };
 
     render() {
         return <div className='home'>
             <div className='carousel-container'>
                 <Carousel autoplay>
-                    <div>
-                        <img  src={home2} alt="First slide"/>
-                    </div>
-                    <div>
-                        <img  src={home1} alt="Third slide"/>
-                    </div>
+                    {
+                        this.state.banners && this.state.banners.map((item, index) => {
+                            return <Link key={index} to={item.route === undefined ? '' : item.route}>
+                                    <img  src={item.url} alt={item.name}/>
+                            </Link>
+                        })
+                    }
+
                 </Carousel>
             </div>
             <Row gutter={8} className='home-container'>

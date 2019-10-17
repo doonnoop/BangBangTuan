@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-// import chatImg from '../../images/chat.png';
-// import likeImg from '../../images/like.png';
-// import seeImg from '../../images/see.png';
 import './Article.css';
 import { Link } from 'react-router-dom';
 import { Comment, Icon} from 'antd';
-// import countImg from "../../images/count.png";
 
 class ArticleItem extends Component{
     render() {

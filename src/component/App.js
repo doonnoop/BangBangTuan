@@ -28,6 +28,7 @@ import ExchangeFail from "./Shop/ExchangeFail";
 import UserOrderList from "./Shop/UserOrderList";
 import OrderDetails from "./Shop/OrderDetails";
 import ResetPassword from "./ResetPassword";
+import Master from "./Master/Master";
 
 class App extends React.Component {
 
@@ -107,6 +108,9 @@ class App extends React.Component {
                         }} />
                         <Route path="/reset" render={() => {
                             return <ResetPassword/>
+                        }} />
+                        <Route path="/master" render={() => {
+                            return <Master/>
                         }} />
                         <Route component={PageNotFound}/>
                     </Switch>
