@@ -16,7 +16,7 @@ class ResetPassword extends Component{
         console.log(value);
         if (value && this.state.count === 60) {
             this.tick();
-            fetch('https://api.bangneedu.com/captcha/' + this.state.phone, {
+            fetch('https://api.bangneedu.com/captcha/' + value, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'

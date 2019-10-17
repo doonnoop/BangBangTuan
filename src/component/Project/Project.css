@@ -11,6 +11,17 @@
 .relative-box {
     position: relative;
 }
+.btn-detail-1 {
+    background-color: #48ce24;
+    color: #ffffff;
+    border: none;
+    padding: 5px 25px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-size: 16px;
+    width: 17%;
+    float: right;
+}
 .btn-detail {
     background-color: #48ce24;
     color: #ffffff;
@@ -34,4 +45,63 @@
 }
 .task-card span {
     color: #ff6e37
+}
+.project-img-con img{
+    width: 100%;
+    height: 100%;
+}
+.project-team-members {
+    display: flex;
+}
+.add-team {
+    vertical-align: middle;
+    cursor: pointer;
+}
+.team-textarea {
+    border-radius: 5px;
+    margin: 10px auto 0;
+    padding: 10px;
+    width: 95%;
+    height: 80px;
+}
+.stack-container .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+    background-color: #ff6e37;
+    color: #ffffff;
+    border-color: #ff6e37;
+}
+.add-team-con .ant-modal-footer, .success-modal .ant-modal-footer {
+    border: none;
+}
+.submit-btn {
+    width: 60%;
+    background-color: #ff6e37;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px auto;
+    display: block;
+}
+.success-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.success-box-img {
+    width: 150px;
+    height: 150px;
+    box-shadow: 0px 6px 10px 5px #e9e8e8;
+    margin: 20px 0;
+}
+.success-box-img img {
+    width: 150px;
+    height: 150px;
+}
+.team-members img{
+    width: 34px;
+    height: 34px;
+    margin-right: 10px;
 }

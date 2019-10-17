@@ -46,3 +46,6 @@
     color: #ffffff;
     padding: 10px;
 }
+.addArticle .for-container .for-editor .for-editor-edit .for-editor-content {
+    height: auto;
+}

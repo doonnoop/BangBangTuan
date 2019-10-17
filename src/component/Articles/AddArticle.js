@@ -5,8 +5,8 @@ import storage from "../storage";
 import { withRouter } from 'react-router-dom';
 
 class AddArticle extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             title: '',
             content: ''
