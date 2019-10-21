@@ -19,6 +19,7 @@ class Home extends Component{
     componentWillMount() {
         this.getScheduleByDate(moment(this.state.date).format("YYYY-MM-DD"));
         this.getBanners();
+        this.getProject();
     }
 
     onDataSelect = (date) => {
@@ -58,6 +59,25 @@ class Home extends Component{
             })
             .catch( err => console.log(err))
     };
+    getProject = () => {
+        fetch('https://api.bangneedu.com/project?current=1&size=1', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }})
+            .then((res) => res.json())
+            .then( res => {
+                console.log(res)
+                this.setState({
+                    project: res.data.records[0]
+                });
+            })
+            .catch( err => console.log(err))
+    };
+
+    projectDetail = () => {
+        this.props.history.push('/project/' + this.state.project.id);
+    };
 
     render() {
         return <div className='home'>
@@ -82,19 +102,23 @@ class Home extends Component{
                         <img src={actImg} alt=''/>
                     </div>
                     <div className='mid-project'>
-                        <Row>
-                            <Col md={6}>
-                                <img alt='' />
-                            </Col>
-                            <Col md={18}>
-                                <Descriptions title="VUE后台项目管理" column={1} className='pro-detail'>
-                                    <Descriptions.Item label="技术栈: ">XX</Descriptions.Item>
-                                    <Descriptions.Item label="代练价格: ">10元/练一次</Descriptions.Item>
-                                    <Descriptions.Item label="代练时间: ">晚上8点开始练完为止</Descriptions.Item>
-                                </Descriptions>
-                                <button>查看详情</button>
-                            </Col>
-                        </Row>
+                        {
+                            this.state.project && <Row>
+                                <Col md={6}>
+                                    <img src={this.state.project.image} alt='' />
+                                </Col>
+                                <Col md={18}>
+                                    <Descriptions title={this.state.project.name} column={1} className='pro-detail'>
+                                        <Descriptions.Item label="技术栈: ">{this.state.project.technology}</Descriptions.Item>
+                                        <Descriptions.Item label="项目介绍 ">{this.state.project.details}</Descriptions.Item>
+                                        {/*<Descriptions.Item label="代练价格: ">10元/练一次</Descriptions.Item>*/}
+                                        {/*<Descriptions.Item label="代练时间: ">晚上8点开始练完为止</Descriptions.Item>*/}
+                                    </Descriptions>
+                                    <button onClick={this.projectDetail}>查看详情</button>
+                                </Col>
+                            </Row>
+                        }
+
                     </div>
                 </Col>
                 <Col md={6}>
