@@ -6,7 +6,7 @@
     flex-direction: row;
     padding-right: 15px;
 }
-.item-head .ant-descriptions-title {
+.item-head .ant-descriptions-title, .pay-order .ant-descriptions-title {
     font-weight: 500;
     font-size: 15px;
     margin-bottom: 0;
@@ -104,4 +104,47 @@
 }
 .address-book .ant-list-items div {
     margin-right: 10px;
+}
+
+
+.pay-content {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+}
+.pay-order-head {
+    display: flex;
+    align-items: center;
+}
+.pay-img {
+    box-shadow: 0 0 8px #e9e8e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 140px;
+}
+.pay-container {
+    display: flex;
+    justify-content: center;
+}
+.pay-fail-box {
+   display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pay-fail-box span {
+    background: #dd1919;
+}
+.pay-fail {
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.fail-info {
+    font-size: 12px;
+    color: #2999e8;
+    font-weight: 400;
+    text-decoration: underline;
 }

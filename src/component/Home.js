@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Home.css';
-import testImg from '../images/author.jpg';
+import yangshu from '../images/yangshu.png';
 import actImg from '../images/act.png';
 import {Row, Col, Carousel, Calendar, Descriptions, List } from "antd";
 import moment from 'moment';
@@ -117,8 +117,8 @@ class Home extends Component{
                                 }
                             </div>
                             <div className='right-foot'>
-                                <img src={testImg} alt=''/>
-                                <p>扫一扫获得更多资讯</p>
+                                <img src={yangshu} alt=''/>
+                                <p>添加阳叔微信sunyangsheep参加活动</p>
                             </div>
                         </div>
                     </div>

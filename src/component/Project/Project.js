@@ -174,7 +174,7 @@ class Project extends Component{
                                                                 {
                                                                     item.teamMembers.map((member, index) => {
                                                                         return <div key={index} className='team-members'>
-                                                                            <img src={member.name} alt={member.name} />
+                                                                            <img src={member.headPortrait} alt={member.name} />
                                                                         </div>
                                                                     })
                                                                 }

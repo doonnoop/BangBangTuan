@@ -79,13 +79,13 @@
     justify-content: center;
 }
 .right-foot img {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     margin: 0 auto;
 }
 .right-foot p {
     color: #999999;
-    font-size: 9px;
+    font-size: 7px;
     margin: 0;
 }
 

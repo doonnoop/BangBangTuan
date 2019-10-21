@@ -29,6 +29,7 @@ import UserOrderList from "./Shop/UserOrderList";
 import OrderDetails from "./Shop/OrderDetails";
 import ResetPassword from "./ResetPassword";
 import Master from "./Master/Master";
+import PayOrder from "./Shop/PayOrder";
 
 class App extends React.Component {
 
@@ -111,6 +112,9 @@ class App extends React.Component {
                         }} />
                         <Route path="/master" render={() => {
                             return <Master/>
+                        }} />
+                        <Route path="/payOrder" render={() => {
+                            return <PayOrder/>
                         }} />
                         <Route component={PageNotFound}/>
                     </Switch>

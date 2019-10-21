@@ -1,5 +1,5 @@
 /*
-Created by peng on 08/29/2019
+Created by Taryn on 08/29/2019
 */
 
 import React, { Component } from 'react';
@@ -146,7 +146,7 @@ class OrderInfo extends Component{
                     if (res.status === 500) {
                         this.props.history.push({ pathname:'/exchangeFail', state: body });
                     } else if(res.status === 200 && data) {
-                        this.props.history.push({ pathname:'/exchangeSuccess', state: data });
+                        this.props.history.push({ pathname:'/payOrder', state: data });
                     }
 
                 })
