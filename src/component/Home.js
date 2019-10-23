@@ -6,6 +6,7 @@ import {Row, Col, Carousel, Calendar, Descriptions, List } from "antd";
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import { Link } from 'react-router-dom';
+import CarousalItem from './Carousel/Carousel'
 moment.locale('zh-cn');
 
 class Home extends Component{
@@ -13,6 +14,30 @@ class Home extends Component{
         super(props);
         this.state = {
             date: new Date(),
+            images: [
+                {
+                    title: '1',
+                    src: "https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg"
+                },
+                {
+                    title: '2',
+                    src: "https://cdn.arstechnica.net/wp-content/uploads/2016/02/5718897981_10faa45ac3_b-640x624.jpg",
+
+                },
+                {
+                    title: '3',
+                    src: "https://i.dailymail.co.uk/1s/2019/04/18/10/12427172-0-image-a-20_1555581069374.jpg"
+                },
+                {
+                    title: '4',
+                    src: "https://i.dailymail.co.uk/1s/2019/04/18/10/12427172-0-image-a-20_1555581069374.jpg"
+                },
+                {
+                    title: '5',
+                    src: "https://i.dailymail.co.uk/1s/2019/04/18/10/12427172-0-image-a-20_1555581069374.jpg"
+                },
+
+            ]
         }
     }
 
@@ -79,6 +104,14 @@ class Home extends Component{
         this.props.history.push('/project/' + this.state.project.id);
     };
 
+    preImg = () => {
+
+    };
+
+    nextImg = () => {
+
+    };
+
     render() {
         return <div className='home'>
             <div className='carousel-container'>
@@ -94,31 +127,35 @@ class Home extends Component{
                 </Carousel>
             </div>
             <Row gutter={8} className='home-container'>
-                <Col md={4} className='left-container' />
-                <Col md={14}>
-                    <div className='mid-header'>
-                        <img src={actImg} alt=''/>
-                        <div>实/战/演/练</div>
-                        <img src={actImg} alt=''/>
-                    </div>
-                    <div className='mid-project'>
-                        {
-                            this.state.project && <Row>
-                                <Col md={6}>
-                                    <img src={this.state.project.image} alt='' />
-                                </Col>
-                                <Col md={18}>
-                                    <Descriptions title={this.state.project.name} column={1} className='pro-detail'>
-                                        <Descriptions.Item label="技术栈: ">{this.state.project.technology}</Descriptions.Item>
-                                        <Descriptions.Item label="项目介绍 ">{this.state.project.details}</Descriptions.Item>
-                                        {/*<Descriptions.Item label="代练价格: ">10元/练一次</Descriptions.Item>*/}
-                                        {/*<Descriptions.Item label="代练时间: ">晚上8点开始练完为止</Descriptions.Item>*/}
-                                    </Descriptions>
-                                    <button onClick={this.projectDetail}>查看详情</button>
-                                </Col>
-                            </Row>
-                        }
-
+                <Col md={2} className='left-container' />
+                <Col md={16}>
+                    <div className='mid-container'>
+                        <div className='mid-header'>
+                            <img src={actImg} alt=''/>
+                            <div>实/战/演/练</div>
+                            <img src={actImg} alt=''/>
+                        </div>
+                        <div className='mid-project'>
+                            {
+                                this.state.project && <Row>
+                                    <Col md={6}>
+                                        <img src={this.state.project.image} alt='' />
+                                    </Col>
+                                    <Col md={18}>
+                                        <Descriptions title={this.state.project.name} column={1} className='pro-detail'>
+                                            <Descriptions.Item label="技术栈: ">{this.state.project.technology}</Descriptions.Item>
+                                            <Descriptions.Item label="项目介绍 ">{this.state.project.details}</Descriptions.Item>
+                                            {/*<Descriptions.Item label="代练价格: ">10元/练一次</Descriptions.Item>*/}
+                                            {/*<Descriptions.Item label="代练时间: ">晚上8点开始练完为止</Descriptions.Item>*/}
+                                        </Descriptions>
+                                        <button onClick={this.projectDetail}>查看详情</button>
+                                    </Col>
+                                </Row>
+                            }
+                        </div>
+                        <div className='mid-xibao' >
+                            <CarousalItem />
+                        </div>
                     </div>
                 </Col>
                 <Col md={6}>

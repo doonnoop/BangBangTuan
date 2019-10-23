@@ -3,7 +3,7 @@ Created by Taryn on 10/21/2019
 */
 
 import React, { Component } from 'react';
-import { Row, Col, Divider, Breadcrumb, Descriptions, message, Avatar } from 'antd';
+import { Row, Col, Divider, Breadcrumb, Descriptions, message } from 'antd';
 import { withRouter } from 'react-router-dom'
 import './ShopItem.css';
 import storage from "../storage";
