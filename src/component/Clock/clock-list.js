@@ -18,6 +18,32 @@ class ClockItem extends Component{
 
     componentWillMount() {
         let dakaList = this.props.dakaList;
+        if(this.state.token) {
+            fetch('https://api.bangneedu.com/punchTheClock/allLike' , {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": "Bearer " + this.state.token
+                }})
+                .then((res) => res.json())
+                .then( res => {
+                    console.log(res);
+                    this.setState({
+                        myLikes: res.data
+                    })
+                    for(let item of dakaList) {
+                        let found = res.data.find(function(element) {
+                            return element.punchTheClockId === item.id;
+                        });
+                        item.liked = found ? true : false;
+                    }
+                    this.setState({
+                        dakaList: dakaList,
+                    });
+                    console.log(dakaList);
+                })
+                .catch( err => console.log(err))
+        }
         for(let item of dakaList) {
             item.comments = []
             if(item.comments && item.comments.length === 0) {
@@ -35,22 +61,21 @@ class ClockItem extends Component{
             }
             item.isToggleOn = false;
             item.display = 'none';
-            item.liked = false
         }
 
-        let likeCollection = storage.get('like_collection');
-        if (likeCollection) {
-            for(let i = 0; i < dakaList.length; i++) {
-                if(likeCollection[dakaList[i].id] === true) {
-                    dakaList[i].liked = true;
-                } else {
-                    dakaList[i].liked = false;
-                }
-            }
-        } else {
-            let likeCollection = {};
-            storage.set('like_collection', likeCollection)
-        }
+        // let likeCollection = storage.get('like_collection');
+        // if (likeCollection) {
+        //     for(let i = 0; i < dakaList.length; i++) {
+        //         if(likeCollection[dakaList[i].id] === true) {
+        //             dakaList[i].liked = true;
+        //         } else {
+        //             dakaList[i].liked = false;
+        //         }
+        //     }
+        // } else {
+        //     let likeCollection = {};
+        //     storage.set('like_collection', likeCollection)
+        // }
         this.setState(function(prevState, props){
             return {dakaList: dakaList}
         });
@@ -88,13 +113,19 @@ class ClockItem extends Component{
 
     onLikeTap = (id) => {
         let dakaList = this.state.dakaList;
-        let likeCollection = storage.get('like_collection');
-        let likeCollected = likeCollection[dakaList[id].id];
+        // let likeCollection = storage.get('like_collection');
+        // let likeCollected = likeCollection[dakaList[id].id];
+        // likeCollected = !likeCollected;
+        // likeCollection[dakaList[id].id] = likeCollected;
+        // storage.set('like_collection', likeCollection);
+        //
+        // let extension = likeCollected ? 'like' : 'not_like';
+
+        let likeCollected = dakaList[id].liked;
         likeCollected = !likeCollected;
-        likeCollection[dakaList[id].id] = likeCollected;
-        storage.set('like_collection', likeCollection);
 
         let extension = likeCollected ? 'like' : 'not_like';
+
         let body = {
             "punchTheClockId": this.state.dakaList[id].id
         }
@@ -166,7 +197,7 @@ class ClockItem extends Component{
             <div className='dakas'>
                 <div className='daka-container'>
                         {
-                            dakaList && dakaList.map((item, index) => {
+                            this.state.myLikes && dakaList && dakaList.map((item, index) => {
                                 return <div key={index} className='daka-box'>
                                     <div className='daka-item'>
                                         <Comment
@@ -206,6 +237,7 @@ class ClockItem extends Component{
                                                                 theme={item.liked ? 'filled' : 'outlined'}
                                                                 onClick={() => this.onLikeTap(index)}
                                                                 style={{fontSize: 15}}
+                                                                className={item.liked ? 'filled' : 'outlined'}
                                                             />
                                                             <span style={{ paddingLeft: 8, cursor: 'auto', fontSize: 14 }}>{item.praiseNumber}</span>
                                                         </div>
