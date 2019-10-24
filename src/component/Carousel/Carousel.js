@@ -2,8 +2,6 @@ import React from "react";
 import img1 from '../../images/luobo/1.jpeg';
 import img2 from '../../images/luobo/2.jpeg';
 import img3 from '../../images/luobo/3.jpeg';
-import img4 from '../../images/luobo/4.jpeg';
-import img5 from '../../images/luobo/5.jpeg';
 import './Carousel.css'
 
 class Carousel extends React.Component{
@@ -13,8 +11,8 @@ class Carousel extends React.Component{
             dir: [
                 { name: 'middle' },
                 { name: 'start' },
-                { name: 'normal' },
-                { name: 'normal' },
+                // { name: 'normal' },
+                // { name: 'normal' },
                 { name: 'end' },
             ]
         };
@@ -40,7 +38,7 @@ class Carousel extends React.Component{
     }
 
     render() {
-        const imgsArr = [img1,img2,img3,img4,img5];
+        const imgsArr = [img1,img2,img3];
         const { dir } = this.state;
         return (
             <div className='root'>
@@ -49,7 +47,7 @@ class Carousel extends React.Component{
                         dir.map((item, key) => {
                             return (
                                 <div className={`slide ${item.name}`} key={key}>
-                                    <img src={`${imgsArr[key]}`} />
+                                    <img src={`${imgsArr[key]}`} alt='xibao' />
                                     {/*此处偷懒 alt="./images/404.png"*/}
                                     <div
                                         className={item.name === 'middle' ? '' : 'masking'}

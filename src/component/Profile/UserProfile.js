@@ -122,7 +122,7 @@ class UserProfile extends Component{
                 <Col md={4} />
                 <Col md={16}>
                     {
-                        userInfo && <div>
+                        userInfo && <div className='user-profile-container'>
                             <div className='headPortrait'>
                                 <Upload
                                     name="file"
@@ -131,7 +131,7 @@ class UserProfile extends Component{
                                     showUploadList={false}
                                     action="https://api.bangneedu.com/upload"
                                     headers={
-                                        {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+                                        {"Authorization": "Bearer " + storage.get('token')}
                                     }
                                     onChange={(value)=>{this.handleChange(value,userInfo)}}
                                 >

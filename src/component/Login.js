@@ -35,7 +35,8 @@ class Login extends Component{
                     });
                     if(res.data) {
                         message.success("登陆成功", 2);
-                        storage.set('token',res.data);
+                        storage.set('token',res.data.toString());
+                        // localStorage.setItem('token', res.data);
                         this.props.history.push("/profile");
                     } else {
                         message.error("登陆失败");

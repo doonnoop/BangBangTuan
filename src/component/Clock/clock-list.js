@@ -197,7 +197,7 @@ class ClockItem extends Component{
             <div className='dakas'>
                 <div className='daka-container'>
                         {
-                            this.state.myLikes && dakaList && dakaList.map((item, index) => {
+                             dakaList && dakaList.map((item, index) => {
                                 return <div key={index} className='daka-box'>
                                     <div className='daka-item'>
                                         <Comment
@@ -237,7 +237,7 @@ class ClockItem extends Component{
                                                                 theme={item.liked ? 'filled' : 'outlined'}
                                                                 onClick={() => this.onLikeTap(index)}
                                                                 style={{fontSize: 15}}
-                                                                className={item.liked ? 'filled' : 'outlined'}
+                                                                className={item.liked ? 'twoTone' : 'outlined'}
                                                             />
                                                             <span style={{ paddingLeft: 8, cursor: 'auto', fontSize: 14 }}>{item.praiseNumber}</span>
                                                         </div>
