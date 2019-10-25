@@ -1,10 +1,10 @@
 .root {
     width: 100%;
-    margin-top: 100px;
+    margin-top: 200px;
 }
 .slideBox {
     width: 90%;
-    height: 550px;
+    height: 500px;
     margin: 40px auto;
     position: relative;
 }
@@ -17,8 +17,8 @@
     cursor: pointer;
 }
 .slide img {
-    width: 350px;
-    height: 540px;
+    width: 310px;
+    height: 520px;
 }
 .masking {
     position: absolute;
@@ -32,7 +32,7 @@
 .middle {
     left: 25%;
     bottom: 0;
-    width: 350px;
+    width: 310px;
     z-index: 33;
 }
 .middle .masking{
@@ -41,21 +41,21 @@
 .start {
     left: 0;
     bottom: 0;
-    width: 350px;
+    width: 310px;
     z-index: 22;
     transform: scale(0.95);
 }
 .end {
     right: 0;
     bottom: 0;
-    width: 350px;
+    width: 310px;
     z-index: 22;
     transform: scale(0.95);
 }
 .normal {
     left: 10%;
     bottom: 0;
-    width: 350px;
+    width: 310px;
     transform: scale(0.9);
     z-index: 11;
 }

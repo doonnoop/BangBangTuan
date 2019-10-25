@@ -135,8 +135,8 @@
 .mid-xibao {
     background: url('../images/xibao.png');
     background-size: 780px 731px;
-    width: 780px;
-    height: 731px;
+    width: 90%;
+    height: 100%;
     margin: 20px 0;
     display: flex;
     justify-content: center;

@@ -28,7 +28,7 @@ import ExchangeFail from "./Shop/ExchangeFail";
 import UserOrderList from "./Shop/UserOrderList";
 import OrderDetails from "./Shop/OrderDetails";
 import ResetPassword from "./ResetPassword";
-import Master from "./Master/Master";
+import MasterShowPage from "./Master/MasterShowPage";
 import PayOrder from "./Shop/PayOrder";
 
 class App extends React.Component {
@@ -111,7 +111,7 @@ class App extends React.Component {
                             return <ResetPassword/>
                         }} />
                         <Route path="/master" render={() => {
-                            return <Master/>
+                            return <MasterShowPage/>
                         }} />
                         <Route path="/payOrder" render={() => {
                             return <PayOrder/>

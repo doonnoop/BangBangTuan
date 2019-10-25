@@ -101,7 +101,7 @@ class Profile extends Component{
                             {
                                 (this.state.userInfo && (
                                 <div className='head-container'>
-                                    <img src={this.state.userInfo.headPortrait} alt='' onClick={() => this.handleClick(this.state.userInfo.id)}/>
+                                    <img src={this.state.userInfo.headPortrait} alt='' onClick={() => this.handleClick(this.state.userInfo.id)} style={{cursor: 'pointer'}}/>
                                     <Descriptions title={this.state.userInfo.name} className='user-info' column={1}>
                                         <Descriptions.Item label="微信号 ">{this.state.userInfo.weixin}</Descriptions.Item>
                                         <Descriptions.Item label="个人简介 ">{this.state.userInfo.description ? this.state.userInfo.description : '什么都没有'}</Descriptions.Item>

@@ -49,7 +49,7 @@ class UserProfile extends Component{
         if (info.file.status === 'done') {
             const data = {
                 "id": record.id,
-                "image": info.file.response.data
+                "headPortrait": info.file.response.data
             };
             fetch('https://api.bangneedu.com/user', {
                 method: 'PUT',
