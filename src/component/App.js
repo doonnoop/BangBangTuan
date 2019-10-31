@@ -30,6 +30,8 @@ import OrderDetails from "./Shop/OrderDetails";
 import ResetPassword from "./ResetPassword";
 import MasterShowPage from "./Master/MasterShowPage";
 import PayOrder from "./Shop/PayOrder";
+import Master from "./Master/Master";
+import MorePaths from "./StudyPath/MorePaths";
 
 class App extends React.Component {
 
@@ -77,6 +79,9 @@ class App extends React.Component {
                         <Route path="/pathDetail/:id/:index" render={() => {
                             return <PathDetails />
                         }} />
+                        <Route path="/pathDetails" render={() => {
+                            return <MorePaths />
+                        }} />
                         <Route path="/shop" render={() => {
                             return <Shop />
                         }} />
@@ -110,11 +115,14 @@ class App extends React.Component {
                         <Route path="/reset" render={() => {
                             return <ResetPassword/>
                         }} />
-                        <Route path="/master" render={() => {
+                        <Route path="/masterShowPage" render={() => {
                             return <MasterShowPage/>
                         }} />
                         <Route path="/payOrder" render={() => {
                             return <PayOrder/>
+                        }} />
+                        <Route path="/master" render={() => {
+                            return <Master/>
                         }} />
                         <Route component={PageNotFound}/>
                     </Switch>

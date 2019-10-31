@@ -45,7 +45,7 @@ class StudyPath extends Component{
                                     <div>{item.title}</div>
                                     <div>用时： {item.time}</div>
                                 </div>
-                                <PathInfo id={item.id} />
+                                <PathInfo item={item} />
                             </div>
                         })
                     }

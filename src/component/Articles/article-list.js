@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Article.css';
 import { Link } from 'react-router-dom';
 import { Comment, Icon} from 'antd';
+import ReactMarkdown from 'react-markdown';
 
 class ArticleItem extends Component{
     render() {
@@ -20,8 +21,9 @@ class ArticleItem extends Component{
 
                                 }
                                 content={
-                                    <div>
-                                        <p className='content' style={{marginTop: 30}}>{item.content}</p>
+                                    <div style={{marginTop: 40}}>
+                                        <ReactMarkdown className='content content-markdown' source={item.content.substring(0,150)} />
+                                        {/*<p className='content' style={{marginTop: 30}}>{item.content.substring(0,150)}</p>*/}
                                     </div>
                                 }
                                 datetime={

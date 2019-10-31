@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {List, Button} from 'antd';
 import './StudyPath.css';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class PathInfo extends Component{
     constructor(props) {
@@ -16,7 +16,7 @@ class PathInfo extends Component{
     }
 
     getPathInfo = () => {
-        fetch('https://api.bangneedu.com/learningPathDetails/' + this.props.id, {
+        fetch('https://api.bangneedu.com/learningPathDetails/' + this.props.item.id, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,13 +25,17 @@ class PathInfo extends Component{
             .then( res => {
                 console.log(res)
                 this.setState({
-                    pathInfo: res.data
+                    pathInfo: res.data.length > 2 ? res.data.slice(0,2) : res.data
                 })
             })
             .catch( err => console.log(err))
     };
 
     render() {
+        const path = {
+            pathname: '/pathDetails',
+            state: this.props.item,
+        };
         return(
             <div>
                 {
@@ -51,8 +55,8 @@ class PathInfo extends Component{
                         />
                         {
                             this.state.pathInfo.length > 0 &&
-                            <div className={this.state.pathInfo.length + 1 % 2 === 0 ? 'load dark' : 'load light'}>
-                                <div>查看更多》</div>
+                            <div className={this.state.pathInfo.length % 2 === 0 ? 'load dark' : 'load light'}>
+                                <Link to={path}>查看更多》</Link>
                             </div>
                         }
 

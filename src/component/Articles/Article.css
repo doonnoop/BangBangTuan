@@ -49,3 +49,7 @@
 .addArticle .for-container .for-editor .for-editor-edit .for-editor-content {
     height: auto;
 }
+
+.content-markdown {
+    margin-top: 100px;
+}
