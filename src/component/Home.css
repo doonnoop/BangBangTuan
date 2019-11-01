@@ -133,8 +133,8 @@
     float: right;
 }
 .mid-xibao {
-    background: url('../images/xibao.png');
-    background-size: 780px 731px;
+    background: url('../images/xibao.png') no-repeat;
+    background-size: 780px 760px;
     width: 90%;
     height: 100%;
     margin: 20px 0;

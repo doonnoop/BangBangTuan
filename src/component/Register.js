@@ -141,7 +141,7 @@ class Register extends Component{
                         rules: [{ required: true, message: '请输入手机号' }],
                     })(
                         <Search
-                            prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)', fontSize: 16 }} />}
+                            prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)', fontSize: 16, padding: 0 }} />}
                             placeholder="请输入手机号" onSearch={this.getValidCode} enterButton={this.state.count !== 60 ? this.state.count +' s' : '获取验证码'} />
                     )}
                 </Form.Item>

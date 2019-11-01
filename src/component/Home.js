@@ -104,14 +104,6 @@ class Home extends Component{
         this.props.history.push('/project/' + this.state.project.id);
     };
 
-    preImg = () => {
-
-    };
-
-    nextImg = () => {
-
-    };
-
     render() {
         return <div className='home'>
             <div className='carousel-container'>
