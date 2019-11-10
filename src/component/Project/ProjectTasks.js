@@ -3,6 +3,7 @@ import { Row, Col, Breadcrumb, Layout, Button, message } from 'antd';
 import './Project.css';
 import { withRouter} from 'react-router-dom';
 import storage from "../storage";
+import MasterRecommend from "../Master/MasterRecommend"
 const { Content } = Layout;
 
 class ProjectTasks extends Component{
@@ -93,6 +94,7 @@ class ProjectTasks extends Component{
                                             <Button type='primary' shape='round' onClick={this.receiveTask}>领取任务</Button>
                                         </p>
                                     </Content>
+                                    <MasterRecommend/>
                                 </div>
                             </div>
                         }

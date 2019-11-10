@@ -13,6 +13,13 @@ export default class Navigation extends React.Component {
             token: '',
             headPortrait: ''
         }
+
+    }
+
+    fn(token){
+        this.setState({
+            token: token
+        })
     }
 
     componentDidMount() {
@@ -35,6 +42,14 @@ export default class Navigation extends React.Component {
         console.log(e);
         e.key === 'logout' && this.logout();
     };
+    masterPage = () => {
+        if(this.state.loginStatus){
+            return <Nav.Link href="/master">师徒计划</Nav.Link>
+        }
+        else{
+            return null;
+        }
+    }
 
     render() {
         if (this.state.loaded === false) {
@@ -44,6 +59,7 @@ export default class Navigation extends React.Component {
         let headPortrait = storage.get('headPortrait');
         let navRight;
         if(token) {
+            console.log("这个是token:"+token)
             if (!this.state.loginStatus) {
                 navRight = null
             } else {
@@ -68,7 +84,7 @@ export default class Navigation extends React.Component {
                     <Nav.Link href="/profile">
                         <img src={noAuthor} alt='' className='profile'/>
                     </Nav.Link>
-                    <Nav.Link href="/login">登陆/注册</Nav.Link>
+                    <Nav.Link href="/login" token={this.state.token} pfn={this.fn.bind(this)}>登陆/注册</Nav.Link>
                 </Nav>
         }
         return (
@@ -84,7 +100,7 @@ export default class Navigation extends React.Component {
                             <Nav.Link href="/clock">打卡记录</Nav.Link>
                             <Nav.Link href="/projects">实战演练</Nav.Link>
                             <Nav.Link href="/path">学习路径</Nav.Link>
-                            {/*<Nav.Link href="#link">师徒计划</Nav.Link>*/}
+                            {this.masterPage()}
                             <Nav.Link href="/shop">积分商城</Nav.Link>
                         </Nav>
                         {navRight}

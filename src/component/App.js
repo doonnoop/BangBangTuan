@@ -32,6 +32,14 @@ import MasterShowPage from "./Master/MasterShowPage";
 import PayOrder from "./Shop/PayOrder";
 import Master from "./Master/Master";
 import MorePaths from "./StudyPath/MorePaths";
+import MasterDetail from "./Master/MasterDetail"
+import MasterPay from "./Master/MasterPay"
+import MasterPaySuccess from "./Master/MasterPaySuccess"
+import MasterPayFail from "./Master/MasterPayFail"
+import MasterRecommend from "./Master/MasterRecommend"
+import MasterPostList from "./Master/MasterPostList"
+import ApprenticeList from "./Master/ApprenticeList"
+import MasterList from "./Master/MasterList"
 
 class App extends React.Component {
 
@@ -124,6 +132,32 @@ class App extends React.Component {
                         <Route path="/master" render={() => {
                             return <Master/>
                         }} />
+                        <Route path="/masterDetail/:id" render={() => {
+                            return <MasterDetail/>
+                        }} />
+                        <Route path="/masterPay/:id" render={() => {
+                            return <MasterPay/>
+                        }} />
+                        <Route path="/masterPaySuccess" render={() => {
+                            return <MasterPaySuccess/>
+                        }} />
+                        <Route path="/masterPayFail" render={() => {
+                            return <MasterPayFail/>
+                        }} />
+                        <Route path="/masterRecommend" render={() => {
+                            return <MasterRecommend/>
+                        }}/>
+                        <Route path="/masterPostList" render={() => {
+                            return <MasterPostList/>
+                        }}/>
+                        <Route path="/apprenticeList" render={() => {
+                            return <ApprenticeList/>
+                        }}/>
+                        <Route path="/masterList" render={() => {
+                            return <MasterList/>
+                        }}/>
+                        
+                        
                         <Route component={PageNotFound}/>
                     </Switch>
                 </BrowserRouter>
