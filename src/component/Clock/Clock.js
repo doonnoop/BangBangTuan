@@ -6,6 +6,7 @@ import storage from "../storage";
 import { withRouter } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import './paginate.css'
+import { getClocks } from '../../fetch';
 
 class Clock extends Component{
     constructor(props) {
@@ -18,25 +19,18 @@ class Clock extends Component{
     }
 
     componentDidMount() {
-        this.getDakaList();
+        this.getDakaList(this.state.current);
     };
 
-    getDakaList = () => {
-        fetch('https://api.bangneedu.com/punchTheClock?current=' + this.state.current +'&size=10', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            }})
-            .then((res) => res.json())
-            .then( res => {
-                this.setState({
-                    dakaList: res.data.records,
-                    pages: parseInt(res.data.pages),
-                    changed: true
-                });
-            })
-            .catch( err => console.log(err))
-        console.log(this.state.dakaList)
+    getDakaList = (page) => {
+        getClocks(page).then((res) => {
+            console.log(res)
+            this.setState({
+                dakaList: res.records,
+                pages: parseInt(res.pages),
+                changed: true
+            });
+        })
     };
 
     onFieldChange = (e) => {
@@ -62,7 +56,7 @@ class Clock extends Component{
                     .then( res => {
                         console.log(res);
                         if(res.status === 200) {
-                            this.getDakaList();
+                            this.getDakaList(this.state.current);
                             message.success(res.msg, 1);
                             this.setState({
                                 textarea: ''
@@ -84,7 +78,7 @@ class Clock extends Component{
         console.log(data.selected)
         let selected = data.selected + 1;
         this.setState({ current: selected, changed: false }, () => {
-            this.getDakaList();
+            this.getDakaList(selected);
         });
     };
 
@@ -95,6 +89,7 @@ class Clock extends Component{
                 <Col md={14}>
                     <div className='daka'>
                         <textarea rows='5' className='textarea' value={this.state.textarea} onChange={this.onFieldChange} />
+                        <input rows='5' className='textarea' value={this.state.textarea} onChange={this.onFieldChange} />
                         <button className='ml-auto button' onClick={this.dakaSubmit}>打卡</button>
                     </div>
                     {
