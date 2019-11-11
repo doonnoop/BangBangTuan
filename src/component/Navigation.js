@@ -5,8 +5,23 @@ import noAuthor from '../images/no-author.png';
 import logo from '../images/logo.png';
 import storage from "./storage";
 import authService from "../services/authService";
+import { Menu, Dropdown} from 'antd';
+
+const menu =<Menu>
+    <Menu.Item>
+        <Nav.Link href="/profile">个人中心</Nav.Link>
+    </Menu.Item>
+    <Menu.Divider style={{margin:"0px 8px"}}/>
+    <Menu.Item>
+        <Nav.Link href="/master">师徒计划</Nav.Link>
+    </Menu.Item>
+</Menu>
+    
 
 export default class Navigation extends React.Component {
+
+
+
     constructor(props) {
         super(props);
         this.state = {
@@ -42,14 +57,6 @@ export default class Navigation extends React.Component {
         console.log(e);
         e.key === 'logout' && this.logout();
     };
-    masterPage = () => {
-        if(this.state.loginStatus){
-            return <Nav.Link href="/master">师徒计划</Nav.Link>
-        }
-        else{
-            return null;
-        }
-    }
 
     render() {
         if (this.state.loaded === false) {
@@ -65,9 +72,11 @@ export default class Navigation extends React.Component {
             } else {
                 navRight =
                     <Nav className="ml-auto">
-                        <Nav.Link href="/profile">
-                            <img src={headPortrait} alt='' className='profile'/>
-                        </Nav.Link>
+                        <Dropdown overlay={menu} trigger={['click']}>
+                            <Nav.Link>
+                                <img src={headPortrait} alt='' className='profile'/>
+                            </Nav.Link>
+                        </Dropdown>
                         <div className='article-exit'>
                             <Nav.Link href="/addArticle">
                                 <button className='article'>写文章</button>
@@ -84,7 +93,7 @@ export default class Navigation extends React.Component {
                     <Nav.Link href="/profile">
                         <img src={noAuthor} alt='' className='profile'/>
                     </Nav.Link>
-                    <Nav.Link href="/login" token={this.state.token} pfn={this.fn.bind(this)}>登陆/注册</Nav.Link>
+                    <Nav.Link href="/login">登陆/注册</Nav.Link>
                 </Nav>
         }
         return (
@@ -100,7 +109,6 @@ export default class Navigation extends React.Component {
                             <Nav.Link href="/clock">打卡记录</Nav.Link>
                             <Nav.Link href="/projects">实战演练</Nav.Link>
                             <Nav.Link href="/path">学习路径</Nav.Link>
-                            {this.masterPage()}
                             <Nav.Link href="/shop">积分商城</Nav.Link>
                         </Nav>
                         {navRight}
