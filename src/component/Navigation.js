@@ -7,13 +7,16 @@ import storage from "./storage";
 import authService from "../services/authService";
 import { Menu, Dropdown} from 'antd';
 
-const menu =<Menu>
+const menu =<Menu style={{textAlign:"center"}}>
     <Menu.Item>
         <Nav.Link href="/profile">个人中心</Nav.Link>
     </Menu.Item>
-    <Menu.Divider style={{margin:"0px 8px"}}/>
     <Menu.Item>
         <Nav.Link href="/master">师徒计划</Nav.Link>
+    </Menu.Item>
+    <Menu.Divider style={{margin:"0px 8px"}}/>
+    <Menu.Item>
+        <Nav.Link href="/logout">退出</Nav.Link>
     </Menu.Item>
 </Menu>
     
@@ -80,9 +83,6 @@ export default class Navigation extends React.Component {
                         <div className='article-exit'>
                             <Nav.Link href="/addArticle">
                                 <button className='article'>写文章</button>
-                            </Nav.Link>
-                            <Nav.Link href="/logout">
-                                <button className='exit'>[退出]</button>
                             </Nav.Link>
                         </div>
                     </Nav>
