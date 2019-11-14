@@ -8,7 +8,7 @@ class ArticleItem extends Component{
     render() {
         let articles = this.props.articles;
         return (
-            <div className='article-list'>
+            <div>
                 {
                     articles && articles.map((item, index) => {
                         return <Link to={'/article/' + item.id} style={{ textDecoration: 'none', color: '#666666' }} className='article-item' key={index}>
@@ -22,8 +22,7 @@ class ArticleItem extends Component{
                                 }
                                 content={
                                     <div style={{marginTop: 40}}>
-                                        <ReactMarkdown className='content content-markdown' source={item.content.substring(0,150)} />
-                                        {/*<p className='content' style={{marginTop: 30}}>{item.content.substring(0,150)}</p>*/}
+                                        <ReactMarkdown className='content-markdown' source={item.content.substring(0,150)} />
                                     </div>
                                 }
                                 datetime={
@@ -32,19 +31,19 @@ class ArticleItem extends Component{
                                 actions={
                                     [
                                         <span className='comment-like'>
-                                                        <div className='vertical-alain'>
-                                                            <Icon type="eye" style={{fontSize: 18}} />
-                                                            <span style={{ paddingLeft: 8, cursor: 'auto', fontSize: 14 }}>{item.commentNumber}</span>
-                                                        </div>
-                                                        <div className='vertical-alain'>
-                                                            <Icon type="message" style={{fontSize: 16}} />
-                                                            <span style={{ paddingLeft: 8, cursor: 'auto', fontSize: 14 }}>{item.commentNumber}</span>
-                                                        </div>
-                                                        <div className='vertical-alain'>
-                                                            <Icon type="like" style={{fontSize: 16}} />
-                                                            <span style={{ paddingLeft: 8, cursor: 'auto', fontSize: 14 }}>{item.praiseNumber}</span>
-                                                        </div>
-                                                    </span>
+                                            <div className='vertical-alain'>
+                                                <Icon type="eye" style={{fontSize: 18}} />
+                                                <span style={{ paddingLeft: 8, cursor: 'auto', fontSize: 14 }}>{item.commentNumber}</span>
+                                            </div>
+                                            <div className='vertical-alain'>
+                                                <Icon type="message" style={{fontSize: 16}} />
+                                                <span style={{ paddingLeft: 8, cursor: 'auto', fontSize: 14 }}>{item.commentNumber}</span>
+                                            </div>
+                                            <div className='vertical-alain'>
+                                                <Icon type="like" style={{fontSize: 16}} />
+                                                <span style={{ paddingLeft: 8, cursor: 'auto', fontSize: 14 }}>{item.praiseNumber}</span>
+                                            </div>
+                                        </span>
                                     ]
                                 }
                             />

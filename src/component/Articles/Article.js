@@ -1,61 +1,66 @@
 import React, { Component } from 'react';
-import {  Row, Col } from 'antd';
+import {Row, Col, Radio} from 'antd';
 import ArticleItem from './article-list';
-import storage from "../storage";
 import ReactPaginate from "react-paginate";
+import { getArticles } from "../../fetch";
 
 class Article extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            token: storage.get('token'),
             articles: [],
             current: 1,
-            changed: false
+            changed: false,
+            page: 1,
+            type: ''
         }
     }
 
     componentWillMount() {
-        this.getArticles();
+        this.getArticles(this.state.current);
     }
 
-    getArticles = () => {
-        fetch('https://api.bangneedu.com/article?current=' + this.state.current +'&size=10', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                "Authorization": this.state.token ? "Bearer " + this.state.token : ''
-            }
-        })
-            .then((res) => res.json())
-            .then( res => {
-                console.log(res.data);
-                if(res.status === 200) {
-                    this.setState({
-                        articles: res.data.records,
-                        pages: parseInt(res.data.pages),
-                        changed: true
-                    })
-                }
+    getArticles = (page, type) => {
+        getArticles(page, type).then((res) => {
+            console.log(res);
+            this.setState({
+                articles: res.records,
+                pages: parseInt(res.pages),
+                changed: true
             })
-            .catch( err => console.log(err))
+        })
     };
 
     handlePageClick = (data) => {
         console.log(data.selected)
         let selected = data.selected + 1;
         this.setState({ current: selected, changed: false }, () => {
-            this.getArticles();
+            this.getArticles(selected, this.state.type);
         });
     };
 
+    handleChange = (e) => {
+        console.log(e.target.value);
+        this.getArticles(1, e.target.value);
+    };
+
     render() {
+        const type = this.state.type;
         return (
             <Row>
                 <Col md={4} />
                 <Col md={16}>
                     {
-                        this.state.articles && this.state.changed && <div>
+                        this.state.articles && this.state.changed && <div style={{marginTop: 20}}>
+                            <div className='type-banner'>
+                                <Radio.Group onChange={this.handleChange} >
+                                    <Radio.Button value="" className={type ==='all' ? 'radioActive':''}>全部</Radio.Button>
+                                    <Radio.Button value="前端" className={type ==='前端' ? 'radioActive':''}>#前端#</Radio.Button>
+                                    <Radio.Button value="Java" className={type ==='Java' ? 'radioActive':''}>#Java#</Radio.Button>
+                                    <Radio.Button value="产品经理" className={type ==='产品经理' ? 'radioActive':''}>#产品经理#</Radio.Button>
+                                    <Radio.Button value="Python" className={type ==='Python' ? 'radioActive':''}>#Python#</Radio.Button>
+                                </Radio.Group>
+                            </div>
                             <ArticleItem articles={this.state.articles}/>
                             <ReactPaginate
                                 previousLabel={'<'}
