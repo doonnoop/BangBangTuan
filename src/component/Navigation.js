@@ -109,7 +109,8 @@ export default class Navigation extends React.Component {
                             <Nav.Link href="/clock">打卡记录</Nav.Link>
                             <Nav.Link href="/projects">实战演练</Nav.Link>
                             <Nav.Link href="/path">学习路径</Nav.Link>
-                            <Nav.Link href="/shop">积分商城</Nav.Link>
+                            {/*<Nav.Link href="#link">师徒计划</Nav.Link>*/}
+                            {/*<Nav.Link href="/shop">积分商城</Nav.Link>*/}
                         </Nav>
                         {navRight}
                     </Navbar.Collapse>

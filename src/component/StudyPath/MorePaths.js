@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {List, Button, Row, Col} from 'antd';
 import './StudyPath.css';
 import { Link, withRouter } from 'react-router-dom'
-import PathInfo from "./PathInfo";
 
 class MorePaths extends Component{
     constructor(props) {

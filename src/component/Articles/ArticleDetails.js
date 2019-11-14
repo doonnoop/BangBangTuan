@@ -116,7 +116,7 @@ class ArticleDetails extends Component{
                                         }
                                         content={
                                             <div style={{marginTop: 40}}>
-                                                <ReactMarkdown className='content' source={article.content} />
+                                                <ReactMarkdown className='content-markdown' source={article.content} />
                                             </div>
                                         }
                                         datetime={
