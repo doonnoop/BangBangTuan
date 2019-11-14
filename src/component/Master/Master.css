@@ -1,0 +1,119 @@
+.btnDetail{
+    width: 70px;
+    text-align: center;
+    background-color: #ff6e37;
+    border-radius: 5px;
+    float: left;
+    line-height: 40px;
+    height:40px;
+    color: white;
+}
+.master-image{
+    width: 100%;
+    height: 100%;
+}
+.pay h2{
+    color: #fff;
+    letter-spacing:2px;
+}
+.pay p{
+    color: yellow;
+    font-weight: bold;
+}
+.pay .payNote{
+    color: #616161;
+    font-weight: normal;
+    font-size: 10px;
+    width: 270px;
+    margin:0 auto;
+    margin-top: 30px;
+}
+.pay{
+    padding-top: 50px;
+    float: none;
+    text-align: center;
+}
+
+.seeDetail{
+    color: white;
+    display: block;
+    width: 120px;
+    height: 30px;
+    border: 1px solid #fff;
+    line-height: 30px;
+    margin:0 auto;
+    font-size: 10px;
+}
+.seeDetailFail{
+    color: white;
+    display: inline-block;
+    width: 120px;
+    height: 30px;
+    border: 1px solid #fff;
+    line-height: 30px;
+    margin:0 auto;
+    font-size: 10px;
+    margin: 0px 8px;
+}
+.payFailReason h3{
+    display: inline;
+}
+.payFailReason{
+    padding: 30px 40px;
+}
+.payFailReason p{
+    font-size: 16px;
+    color: red;
+}
+.masterModal p{
+    border: none;
+    width:100%;
+    height: 60px;
+    background-color: #eee;
+    padding: 10px;
+}
+.MasterProfileContext{
+    background-color: #fff;
+}
+.postInfo,.apprenticeInfo,.masterInfo{
+    width: 130px;
+    height: 68px;
+    border: 1px solid #ddd;
+     float: left;
+     border-Radius: 5px;
+     text-align: center;
+     padding-left: 10px;
+}
+.postInfo{
+    margin-right: 15px; 
+}
+.infoIcon{
+    float: left;
+    height: 68px;
+    line-height: 68px;
+}
+.infoTitle{
+    display: block;
+    padding-top: 10px;
+    margin: 0 auto;
+    color: #000;
+}
+.infoNumber{
+    display: block;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 20px;
+    color: #000;
+}
+.editMasterPost{
+    position: absolute;
+    width: 80px;
+    height: 35px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    top: 30px;
+    right: 20px;
+    margin: 0 auto;
+    line-height: 35px;
+    text-align: center;
+}
