@@ -216,7 +216,7 @@ class ClockItem extends Component{
                                             }
                                             content={
                                                 <div>
-                                                    <p className='content' style={{marginTop: 30}}>{item.content}</p>
+                                                    <p className='content' style={{marginTop: 30}}>{item.type ? "#" + item.type + "#" : ''} {item.content}</p>
                                                 </div>
                                             }
                                             datetime={item.createTime}

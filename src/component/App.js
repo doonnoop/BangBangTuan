@@ -161,6 +161,10 @@ class App extends React.Component {
                         <Route component={PageNotFound}/>
                     </Switch>
                 </BrowserRouter>
+                <div className='footer'>
+                    <div>Copyright © bangneedu 黑龙江省马斯克网络科技有限责任公司</div>
+                    <a href='http://www.beian.miit.gov.cn'>黑ICP备19001710号-1</a>
+                </div>
             </div>
         );
     }

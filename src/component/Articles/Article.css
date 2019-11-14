@@ -1,6 +1,3 @@
-.article-list {
-    margin-top: 20px;
-}
 .article-item {
     display: flex;
     flex-direction: column;
@@ -24,7 +21,7 @@
     right: 10px;
     top: 0;
 }
-.content {
+.content-markdown {
     font-size: 18px;
 }
 .article-box {
@@ -49,7 +46,27 @@
 .addArticle .for-container .for-editor .for-editor-edit .for-editor-content {
     height: auto;
 }
-
-.content-markdown {
-    margin-top: 100px;
+.type-banner {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f1f1f1;
+    margin-bottom: 10px;
+    padding: 10px 0;
+}
+.type-banner .ant-radio-group {
+    margin-left: 20px;
+}
+.type-banner .ant-radio-button-wrapper {
+    border: none;
+}
+.type-banner .ant-radio-button-wrapper:first-child {
+    border: none;
+}
+.type-banner .ant-radio-button-wrapper:not(:first-child)::before {
+    background-color: #ffffff;
+}
+.type-banner .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+    /*background-color: #ff6e37;*/
+    /*border-radius: 5px;*/
+    color: #ff6e37;
 }
