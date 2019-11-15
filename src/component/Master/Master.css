@@ -74,6 +74,7 @@
 }
 .MasterProfileContext{
     background-color: #fff;
+    min-width: 800px;
 }
 .postInfo,.apprenticeInfo,.masterInfo{
     width: 130px;

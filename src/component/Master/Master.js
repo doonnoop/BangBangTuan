@@ -51,9 +51,9 @@ class Master extends React.Component {
                 <Card
                   title="成为师傅"
                   bordered={false}
-                  headStyle={{ border: "none" }}
+                  headStyle={{ border: "none"}}
                 >
-                  <div>
+                  <div style={{minWidth:"320px" }}>
                     <Link to={"/masterPostList"}>
                       <div className="postInfo">
                         <div className="infoIcon">
@@ -79,9 +79,9 @@ class Master extends React.Component {
                 <Card
                   title="成为徒弟"
                   bordered={false}
-                  headStyle={{ border: "none" }}
+                  headStyle={{ border: "none"}}
                 >
-                  <div>
+                  <div style={{  minWidth:"200px" }}>
                     <Link to={"/masterList"}>
                       <div className="masterInfo">
                         <div className="infoIcon">
