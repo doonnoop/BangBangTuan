@@ -161,7 +161,7 @@ class Project extends Component{
                                 return <div key={index} className='relative-box'>
                                     <div style={{marginBottom: 20}}>
                                         <Layout style={{ background: '#fff' }}>
-                                            <Sider width={200} height={200}  className="project-img-con">
+                                            <Sider style={{backgroundColor: '#fff'}} className="project-img-con">
                                                 <img className='pro-image' src={item.image} alt='' />
                                             </Sider>
                                             <Layout style={{ background: '#fff' }}>
@@ -172,7 +172,7 @@ class Project extends Component{
                                                         <Descriptions.Item label="组队">
                                                             <div className='project-team-members'>
                                                                 {
-                                                                    item.teamMembers.map((member, index) => {
+                                                                    item.teamMembers && item.teamMembers.map((member, index) => {
                                                                         return <div key={index} className='team-members'>
                                                                             <img src={member.headPortrait} alt={member.name} />
                                                                         </div>
