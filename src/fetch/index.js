@@ -57,3 +57,12 @@ export const getPathDetail = (id) => get({
         'Content-Type': 'application/json',
     }
 });
+
+
+/* 师徒相关 */
+export const getAllMasterList = () => get({
+    url: config.MASTER,
+    headers: {
+        'Content-Type': 'application/json',
+    }
+});
