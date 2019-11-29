@@ -66,3 +66,11 @@ export const getAllMasterList = () => get({
         'Content-Type': 'application/json',
     }
 });
+
+/* 标签相关 */
+export const getTags = () => get({
+    url: config.TAG,
+    headers: {
+        'Content-Type': 'application/json',
+    }
+});

@@ -5,3 +5,4 @@ export const PATH = URL + '/learningPath';
 export const PATH_INFO = URL + '/learningPathDetails';
 export const PATH_DETAILS = URL + '/learningPathDetails/details';
 export const MASTER = URL + '/projectMentor';
+export const TAG = URL + '/tag';
