@@ -6,3 +6,7 @@ export const PATH_INFO = URL + '/learningPathDetails';
 export const PATH_DETAILS = URL + '/learningPathDetails/details';
 export const MASTER = URL + '/projectMentor';
 export const TAG = URL + '/tag';
+export const USER = URL + '/user';
+export const INVITE_CODE = URL + '/invitationCode';
+export const REGISTER = URL + '/register';
+export const VALID_CODE = URL + '/captcha';
