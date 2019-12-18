@@ -1,4 +1,4 @@
-import { get, post } from './tool';
+import { get, post, put } from './tool';
 import * as config from './config';
 import storage from "../component/storage";
 
@@ -52,6 +52,31 @@ export const getUserArticles = () => get({
     }
 });
 
+export const getArticleDetails = (id) => get({
+    url: config.ARTICLE + '/' + id,
+    headers: {
+        'Content-Type': 'application/json',
+        "Authorization": storage.get('token') ? "Bearer " + storage.get('token') : ''
+    }
+});
+
+export const getArticleComments = (id) => get({
+    url: config.ARTICLE_COMMENT + '/' + id,
+    headers: {
+        'Content-Type': 'application/json',
+        "Authorization": storage.get('token') ? "Bearer " + storage.get('token') : ''
+    }
+});
+
+export const postArticleComment = (body) => post({
+    url: config.ARTICLE_COMMENT,
+    body,
+    headers: {
+        'Content-Type': 'application/json',
+        "Authorization": storage.get('token')
+    }
+});
+
 /* 学习路径相关 */
 export const getStudyPaths = (current) => get({
     url: config.PATH + '?current=' + current +'&size=10',
@@ -94,6 +119,15 @@ export const getTags = () => get({
 /* 用户相关 */
 export const getUserInfo = () => get({
     url: config.USER,
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + storage.get('token')
+    }
+});
+
+export const changeUserInfo = (body) => put({
+    url: config.USER,
+    body,
     headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + storage.get('token')
